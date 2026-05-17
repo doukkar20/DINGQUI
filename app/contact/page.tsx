@@ -1,0 +1,72 @@
+import type { Metadata } from "next";
+import { Boxes, Clock, MapPin, MessageCircle } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { T } from "@/lib/i18n";
+import { buildWhatsAppUrl, displayPhoneNumber } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact DINGQI GROS for DingQi tools orders and reservations in Morocco.",
+};
+
+export default function ContactPage() {
+  const whatsappHref = buildWhatsAppUrl(
+    "السلام عليكم، بغيت نستفسر على منتجات DINGQI GROS.",
+  );
+
+  return (
+    <section className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p className="text-sm text-gold"><T k="nav.contact" /></p>
+        <h1 className="mt-2 font-serif text-6xl font-semibold leading-none text-white">
+          <T k="contact.title" />
+        </h1>
+        <p className="mt-3 text-2xl font-semibold text-soft-gold">{displayPhoneNumber}</p>
+        <p className="mt-6 text-lg leading-8 text-muted">
+          <T k="contact.copy" />
+        </p>
+
+        <div className="mt-8 grid gap-4">
+          <a href={whatsappHref} target="_blank" rel="noreferrer" className="glass-card flex items-center gap-4 p-5">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/10 text-gold">
+              <MessageCircle size={21} />
+            </span>
+            <span>
+              <span className="block font-semibold text-white"><T k="actions.orderWhatsapp" /></span>
+              <span className="block text-sm text-muted"><T k="actions.requestQuote" /></span>
+            </span>
+          </a>
+          <div className="glass-card flex items-center gap-4 p-5">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/10 text-gold">
+              <Clock size={21} />
+            </span>
+            <span>
+              <span className="block font-semibold text-white"><T k="actions.requestQuote" /></span>
+              <span className="block text-sm text-muted"><T k="checkout.finalPricing" /></span>
+            </span>
+          </div>
+          <div className="glass-card flex items-center gap-4 p-5">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/10 text-gold">
+              <Boxes size={21} />
+            </span>
+            <span>
+              <span className="block font-semibold text-white"><T k="badges.genuine" /></span>
+              <span className="block text-sm text-muted"><T k="form.notesPlaceholder" /></span>
+            </span>
+          </div>
+          <div className="glass-card flex items-center gap-4 p-5">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/10 text-gold">
+              <MapPin size={21} />
+            </span>
+            <span>
+              <span className="block font-semibold text-white"><T k="badges.nationwide" /></span>
+              <span className="block text-sm text-muted"><T k="badges.delivery" /></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ContactForm />
+    </section>
+  );
+}
