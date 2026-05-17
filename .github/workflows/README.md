@@ -1,6 +1,6 @@
 # Deployment workflow
 
-`deploy.yml` runs automatically on every push to `main` and publishes the static Next.js export to GitHub Pages.
+`deploy.yml` runs automatically on every push to `main` and publishes the static Next.js export to the `gh-pages` branch.
 
 It first runs:
 
@@ -8,6 +8,9 @@ It first runs:
 - `npm run lint`
 - `npm run build`
 
-Then it uploads the `out` folder and deploys it with GitHub Pages. No Vercel secrets are required.
+Then it force-pushes the `out` folder to the `gh-pages` branch. No Vercel secrets are required.
 
-The workflow passes `enablement: true` to `actions/configure-pages` so the first run can enable Pages for the repository when it has not been configured yet.
+In GitHub, set **Settings -> Pages -> Build and deployment -> Source** to **Deploy from a branch**, then choose:
+
+- Branch: `gh-pages`
+- Folder: `/ (root)`
