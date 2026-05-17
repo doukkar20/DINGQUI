@@ -9,3 +9,5 @@ It first runs:
 - `npm run build`
 
 Then it uploads the `out` folder and deploys it with GitHub Pages. No Vercel secrets are required.
+
+The workflow passes `enablement: true` to `actions/configure-pages` so the first run can enable Pages for the repository when it has not been configured yet.
