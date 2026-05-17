@@ -1,21 +1,35 @@
-name: Deploy GitHub Pages
+name: Build GitHub Pages Site
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - ".nojekyll"
+      - "404.html"
+      - "_next/**"
+      - "about/**"
+      - "cart/**"
+      - "categories/**"
+      - "checkout/**"
+      - "contact/**"
+      - "favicon.ico"
+      - "icon.jpg"
+      - "index.html"
+      - "privacy-policy/**"
+      - "products/**"
+      - "robots.txt"
+      - "shop/**"
+      - "sitemap.xml"
+      - "terms-and-conditions/**"
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  deploy:
-    name: Build and publish static site
+  build:
+    name: Build and commit static export
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "true"
@@ -24,6 +38,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -40,17 +56,19 @@ jobs:
       - name: Build static export
         run: npm run build
 
-      - name: Add GitHub Pages marker
-        run: touch out/.nojekyll
-
-      - name: Publish to gh-pages branch
+      - name: Copy export to repository root
         run: |
-          cd out
-          git init
+          cp -R out/. .
+          touch .nojekyll
+
+      - name: Commit generated site
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Deploy GitHub Pages"
-          git branch -M gh-pages
-          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
-          git push --force origin gh-pages
+          git add .nojekyll 404.html _next about cart categories checkout contact favicon.ico icon.jpg index.html privacy-policy products robots.txt shop sitemap.xml terms-and-conditions
+          if git diff --cached --quiet; then
+            echo "No generated site changes to commit."
+          else
+            git commit -m "Update GitHub Pages static site [skip ci]"
+            git push
+          fi
