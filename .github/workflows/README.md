@@ -1,6 +1,6 @@
 # Deployment workflow
 
-`deploy.yml` runs automatically on every push to `main`.
+`deploy.yml` runs automatically on every push to `main` and publishes the static Next.js export to GitHub Pages.
 
 It first runs:
 
@@ -8,12 +8,4 @@ It first runs:
 - `npm run lint`
 - `npm run build`
 
-Then it deploys to Vercel. Add these GitHub repository secrets before expecting the deploy job to succeed:
-
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-
-Optional repository variable:
-
-- `NEXT_PUBLIC_SITE_URL`
+Then it uploads the `out` folder and deploys it with GitHub Pages. No Vercel secrets are required.

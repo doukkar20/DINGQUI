@@ -2,9 +2,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, SlidersHorizontal } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
 import { useI18n } from "@/lib/i18n";
+import { categoryToSlug } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -15,13 +17,20 @@ type ProductExplorerProps = {
 
 export function ProductExplorer({ products, initialCategory = "All" }: ProductExplorerProps) {
   const { direction, t } = useI18n();
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState(initialCategory);
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(products.map((product) => product.category))).sort()],
     [products],
   );
+  const categoryParam = searchParams.get("category");
+  const initialCategoryFromUrl =
+    categories.find((item) => categoryToSlug(item) === categoryParam) ||
+    products.find((product) => categoryToSlug(product.category) === categoryParam)?.category ||
+    initialCategory;
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const category = selectedCategory || initialCategoryFromUrl;
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -67,7 +76,7 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
             <button
               key={item}
               type="button"
-              onClick={() => setCategory(item)}
+              onClick={() => setSelectedCategory(item)}
               className={cn(
                 "shrink-0 rounded-full border px-4 py-2 text-sm transition",
                 category === item

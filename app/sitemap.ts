@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getProducts } from "@/lib/products";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dingqi-gros.vercel.app";
   const now = new Date();

@@ -1,25 +1,15 @@
 import type { Metadata } from "next";
 import { ProductExplorer } from "@/components/product-explorer";
 import { T } from "@/lib/i18n";
-import { categoryToSlug, getCategories, getProducts } from "@/lib/products";
+import { getProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Shop",
   description: "Search and filter the DINGQI GROS DingQi product collection.",
 };
 
-type ShopPageProps = {
-  searchParams?: Promise<{ category?: string }>;
-};
-
-export default async function ShopPage({ searchParams }: ShopPageProps) {
+export default function ShopPage() {
   const products = getProducts();
-  const params = await searchParams;
-  const categories = getCategories();
-  const initialCategory =
-    categories.find((category) => category.slug === params?.category)?.name ||
-    products.find((product) => categoryToSlug(product.category) === params?.category)?.category ||
-    "All";
 
   return (
     <>
@@ -34,7 +24,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           </p>
         </div>
       </section>
-      <ProductExplorer products={products} initialCategory={initialCategory} />
+      <ProductExplorer products={products} />
     </>
   );
 }
