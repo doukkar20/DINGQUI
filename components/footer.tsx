@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
+import { publicAssetPath } from "@/lib/assets";
 import { buildWhatsAppUrl, displayPhoneNumber } from "@/lib/whatsapp";
 
 const footerLinks = [
@@ -26,7 +27,7 @@ export function Footer() {
         <div>
           <LocalizedLink href="/" className="flex items-center gap-3">
             <span className="relative h-10 w-20 overflow-hidden rounded-md border border-gold/50 bg-white">
-              <Image src="/logo.jpg" alt="DINGQI GROS" fill sizes="80px" className="object-contain p-1" />
+              <Image src={publicAssetPath("/logo.jpg")} alt="DINGQI GROS" fill sizes="80px" className="object-contain p-1" />
             </span>
             <span>
               <span className="block font-serif text-2xl font-semibold text-white">

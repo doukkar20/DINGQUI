@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/components/cart-provider";
 import { LanguageSwitcher, LocalizedLink, useI18n } from "@/lib/i18n";
+import { publicAssetPath } from "@/lib/assets";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -32,7 +33,7 @@ export function Header() {
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <LocalizedLink href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="relative h-10 w-20 overflow-hidden rounded-md border border-gold/50 bg-white shadow-[0_0_30px_rgba(212,175,55,0.18)] transition group-hover:border-soft-gold">
-            <Image src="/logo.jpg" alt="DINGQI GROS" fill sizes="80px" className="object-contain p-1" />
+            <Image src={publicAssetPath("/logo.jpg")} alt="DINGQI GROS" fill sizes="80px" className="object-contain p-1" />
           </span>
           <span className="leading-none">
             <span className="block font-serif text-2xl font-semibold text-white">

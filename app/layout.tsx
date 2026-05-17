@@ -5,6 +5,7 @@ import { CartProvider } from "@/components/cart-provider";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { I18nProvider } from "@/lib/i18n";
+import { publicAssetPath } from "@/lib/assets";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
     "premium tools",
   ],
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: publicAssetPath("/logo.jpg"),
+    shortcut: publicAssetPath("/logo.jpg"),
+    apple: publicAssetPath("/logo.jpg"),
   },
   openGraph: {
     title: "DINGQI GROS",

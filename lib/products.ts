@@ -1,7 +1,11 @@
 import productsData from "@/data/products.json";
+import { publicAssetPath } from "@/lib/assets";
 import type { Product } from "@/lib/types";
 
-const products = productsData as Product[];
+const products = (productsData as Product[]).map((product) => ({
+  ...product,
+  images: product.images.map(publicAssetPath),
+}));
 
 export function getProducts(): Product[] {
   return products;
