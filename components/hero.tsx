@@ -21,11 +21,11 @@ export function Hero({ products }: HeroProps) {
   );
 
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10">
+    <section className="relative isolate overflow-hidden border-b border-gray-200">
       <div className="hero-grid absolute inset-0" />
       <motion.div
         aria-hidden="true"
-        className="hero-gold-sweep absolute inset-x-0 top-0 h-full"
+        className="hero-orange-sweep absolute inset-x-0 top-0 h-full"
         animate={{ x: ["-18%", "18%", "-18%"] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -37,17 +37,17 @@ export function Hero({ products }: HeroProps) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10"
         >
-          <div className="mb-6 inline-flex rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm text-soft-gold">
+          <div className="mb-6 inline-flex rounded-full border border-orange/30 bg-orange/10 px-4 py-2 text-sm text-deep-orange">
             {t("hero.badge")}
           </div>
-          <h1 className="max-w-4xl font-serif text-6xl font-semibold leading-none text-white sm:text-7xl lg:text-8xl">
+          <h1 className="max-w-4xl font-serif text-6xl font-semibold leading-none text-foreground sm:text-7xl lg:text-8xl">
             DINGQI GROS
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
             {t("hero.copy")}
           </p>
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <LocalizedLink href="/shop" className="btn-gold">
+            <LocalizedLink href="/shop" className="btn-primary">
               {t("hero.shop")}
               <ArrowRight size={18} />
             </LocalizedLink>
@@ -60,13 +60,13 @@ export function Hero({ products }: HeroProps) {
 
         <div className="relative z-10 min-h-[430px] lg:min-h-[560px]">
           <motion.div
-            className="absolute inset-x-0 top-8 mx-auto aspect-square max-w-[520px] rounded-full border border-gold/25 bg-[linear-gradient(145deg,rgba(212,175,55,0.16),rgba(255,255,255,0.02),rgba(5,5,5,0.2))] shadow-[0_0_90px_rgba(212,175,55,0.16)]"
+            className="absolute inset-x-0 top-8 mx-auto aspect-square max-w-[520px] rounded-full border border-orange/25 bg-[linear-gradient(145deg,rgba(249,115,22,0.16),rgba(255,247,237,0.78),rgba(243,244,246,0.92))] shadow-[0_0_90px_rgba(249,115,22,0.18)]"
             animate={{ rotate: 360 }}
             transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
           />
           {heroProduct && (
             <motion.div
-              className="absolute left-1/2 top-10 w-[82%] max-w-[520px] -translate-x-1/2 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-xl"
+              className="absolute left-1/2 top-10 w-[82%] max-w-[520px] -translate-x-1/2 overflow-hidden rounded-lg border border-gray-200 bg-white/90 p-6 shadow-2xl backdrop-blur-xl"
               initial={{ opacity: 0, y: 30, rotate: -2 }}
               animate={{ opacity: 1, y: [0, -14, 0], rotate: -2 }}
               transition={{ opacity: { duration: 0.7 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
@@ -83,12 +83,12 @@ export function Hero({ products }: HeroProps) {
               </div>
               <div className="mt-5 flex items-end justify-between gap-4">
                 <div>
-                  <p className="text-sm text-gold">{getProductCategory(heroProduct, language)}</p>
-                  <h2 className="mt-1 font-serif text-2xl font-semibold text-white">
+                  <p className="text-sm text-orange">{getProductCategory(heroProduct, language)}</p>
+                  <h2 className="mt-1 font-serif text-2xl font-semibold text-foreground">
                     {getProductName(heroProduct, language)}
                   </h2>
                 </div>
-                <span className="rounded-full border border-gold/40 px-3 py-1 text-xs text-soft-gold">
+                <span className="rounded-full border border-orange/40 px-3 py-1 text-xs text-deep-orange">
                   {t("hero.quoteReady")}
                 </span>
               </div>
@@ -98,7 +98,7 @@ export function Hero({ products }: HeroProps) {
           {floatingProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              className="absolute hidden w-48 overflow-hidden rounded-lg border border-white/10 bg-black/55 p-3 shadow-xl backdrop-blur-xl sm:block"
+              className="absolute hidden w-48 overflow-hidden rounded-lg border border-gray-200 bg-white/95 p-3 shadow-xl backdrop-blur-xl sm:block"
               style={{
                 left: index === 0 ? "0%" : index === 1 ? "66%" : "8%",
                 top: index === 0 ? "4%" : index === 1 ? "58%" : "70%",
@@ -114,7 +114,7 @@ export function Hero({ products }: HeroProps) {
                 <Image src={product.images[0]} alt={getProductImageAlt(product, language)} fill sizes="192px" className="object-contain p-3" />
               </div>
               <p className="mt-3 text-xs text-muted">{getProductCategory(product, language)}</p>
-              <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-white">
+              <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-foreground">
                 {getProductName(product, language)}
               </h3>
             </motion.div>

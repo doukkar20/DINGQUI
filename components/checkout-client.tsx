@@ -29,9 +29,9 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
     return (
       <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <div className="glass-panel p-10">
-          <h1 className="font-serif text-5xl font-semibold text-white">{t("checkout.readyTitle")}</h1>
+          <h1 className="font-serif text-5xl font-semibold text-foreground">{t("checkout.readyTitle")}</h1>
           <p className="mt-4 text-muted">{t("checkout.readyCopy")}</p>
-          <LocalizedLink href="/shop" className="btn-gold mt-8">
+          <LocalizedLink href="/shop" className="btn-primary mt-8">
             {t("hero.shop")}
           </LocalizedLink>
         </div>
@@ -50,19 +50,19 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
         />
 
         <aside className="glass-panel h-fit p-6 lg:sticky lg:top-28">
-          <h2 className="font-serif text-3xl font-semibold text-white">{t("cart.summary")}</h2>
+          <h2 className="font-serif text-3xl font-semibold text-foreground">{t("cart.summary")}</h2>
           <div className="mt-6 grid gap-4">
             {cartProducts.map(({ item, product }) => (
-              <div key={product.id} className="border-b border-white/10 pb-4">
+              <div key={product.id} className="border-b border-gray-200 pb-4">
                 <div className="flex justify-between gap-4">
-                  <p className="text-sm font-semibold leading-6 text-white">{getProductName(product, language)}</p>
-                  <span className="text-sm text-gold">x{item.quantity}</span>
+                  <p className="text-sm font-semibold leading-6 text-foreground">{getProductName(product, language)}</p>
+                  <span className="text-sm text-orange">x{item.quantity}</span>
                 </div>
                 <p className="mt-1 text-xs text-muted">{t("product.id")}: {product.product_id}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-lg border border-gold/30 bg-gold/10 p-4 text-sm leading-6 text-soft-gold">
+          <div className="mt-6 rounded-lg border border-orange/30 bg-orange/10 p-4 text-sm leading-6 text-deep-orange">
             {t("checkout.finalPricing")}
           </div>
           <button type="button" onClick={clearCart} className="btn-ghost mt-5 w-full">

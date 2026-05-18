@@ -66,8 +66,8 @@ export function ReservationForm({
 
   return (
     <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8">
-      <p className="text-sm text-gold">{t("reservation.eyebrow")}</p>
-      <h2 className="mt-2 font-serif text-4xl font-semibold text-white">
+      <p className="text-sm text-orange">{t("reservation.eyebrow")}</p>
+      <h2 className="mt-2 font-serif text-4xl font-semibold text-foreground">
         {title || t("reservation.title")}
       </h2>
       <p className="mt-3 text-sm leading-7 text-muted">{t("reservation.copy")}</p>
@@ -162,7 +162,7 @@ export function ReservationForm({
         </label>
       </div>
 
-      <button type="submit" className="btn-gold mt-7 w-full sm:w-auto">
+      <button type="submit" className="btn-primary mt-7 w-full sm:w-auto">
         <Send size={18} />
         {t("actions.sendWhatsappOrder")}
       </button>

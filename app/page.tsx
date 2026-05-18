@@ -46,7 +46,7 @@ export default function Home() {
         ].map(([label, value]) => (
           <div key={label} className="glass-panel p-6">
             <p className="text-sm text-muted"><T k={label as "home.stats.products"} /></p>
-            <p className="mt-2 font-serif text-5xl font-semibold text-white">{value}</p>
+            <p className="mt-2 font-serif text-5xl font-semibold text-foreground">{value}</p>
           </div>
         ))}
       </MotionSection>
@@ -54,8 +54,8 @@ export default function Home() {
       <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-sm text-gold"><T k="home.featuredEyebrow" /></p>
-            <h2 className="mt-2 font-serif text-5xl font-semibold text-white">
+            <p className="text-sm text-orange"><T k="home.featuredEyebrow" /></p>
+            <h2 className="mt-2 font-serif text-5xl font-semibold text-foreground">
               <T k="home.featuredTitle" />
             </h2>
           </div>
@@ -71,17 +71,17 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="border-y border-white/10 bg-white/[0.02]">
+      <MotionSection className="border-y border-gray-200 bg-light-gray">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
-            <p className="text-sm text-gold"><T k="nav.categories" /></p>
-            <h2 className="mt-2 font-serif text-5xl font-semibold text-white">
+            <p className="text-sm text-orange"><T k="nav.categories" /></p>
+            <h2 className="mt-2 font-serif text-5xl font-semibold text-foreground">
               <T k="home.categoriesTitle" />
             </h2>
             <p className="mt-5 leading-8 text-muted">
               <T k="home.categoriesCopy" />
             </p>
-            <LocalizedLink href="/categories" className="btn-gold mt-8">
+            <LocalizedLink href="/categories" className="btn-primary mt-8">
             <T k="home.browseCategories" />
               <ArrowRight size={18} />
             </LocalizedLink>
@@ -100,10 +100,10 @@ export default function Home() {
             const Icon = item.icon;
             return (
               <div key={item.title} className="glass-panel p-6">
-                <div className="grid h-12 w-12 place-items-center rounded-full border border-gold/40 bg-gold/10 text-gold">
+                <div className="grid h-12 w-12 place-items-center rounded-full border border-orange/40 bg-orange/10 text-orange">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-5 font-serif text-2xl font-semibold text-white"><T k={item.title as "commitments.source.title"} /></h3>
+                <h3 className="mt-5 font-serif text-2xl font-semibold text-foreground"><T k={item.title as "commitments.source.title"} /></h3>
                 <p className="mt-3 text-sm leading-7 text-muted"><T k={item.text as "commitments.source.text"} /></p>
               </div>
             );

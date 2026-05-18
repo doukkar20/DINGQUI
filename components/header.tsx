@@ -29,14 +29,14 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <LocalizedLink href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="relative h-10 w-20 overflow-hidden rounded-md border border-gold/50 bg-white shadow-[0_0_30px_rgba(212,175,55,0.18)] transition group-hover:border-soft-gold">
+          <span className="relative h-10 w-20 overflow-hidden rounded-md border border-orange/50 bg-white shadow-[0_0_30px_rgba(249,115,22,0.16)] transition group-hover:border-soft-orange">
             <Image src={publicAssetPath("/logo.jpg")} alt="DINGQI GROS" fill sizes="80px" className="object-contain p-1" />
           </span>
           <span className="leading-none">
-            <span className="block font-serif text-2xl font-semibold text-white">
+            <span className="block font-serif text-2xl font-semibold text-foreground">
               DINGQI GROS
             </span>
             <span className="block text-xs text-muted">{t("brand.tagline")}</span>
@@ -49,8 +49,8 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "rounded-full px-4 py-2 text-sm text-muted transition hover:bg-white/5 hover:text-white",
-                pathname === item.href && "bg-white/10 text-gold",
+                "rounded-full px-4 py-2 text-sm text-muted transition hover:bg-orange/10 hover:text-foreground",
+                pathname === item.href && "bg-orange/10 text-orange",
               )}
             >
               {t(item.label)}
@@ -98,7 +98,7 @@ export function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-white/10 bg-[#070707]/95 lg:hidden"
+            className="overflow-hidden border-t border-gray-200 bg-white/95 lg:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2 px-4 py-5 sm:px-6">
               <LanguageSwitcher compact />
@@ -108,8 +108,8 @@ export function Header() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "rounded-lg px-4 py-3 text-sm text-muted transition hover:bg-white/5 hover:text-white",
-                    pathname === item.href && "bg-white/10 text-gold",
+                    "rounded-lg px-4 py-3 text-sm text-muted transition hover:bg-orange/10 hover:text-foreground",
+                    pathname === item.href && "bg-orange/10 text-orange",
                   )}
                 >
                   {t(item.label)}
@@ -119,7 +119,7 @@ export function Header() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-gold mt-2"
+                className="btn-primary mt-2"
                 onClick={() => setOpen(false)}
               >
                 <Phone size={18} />

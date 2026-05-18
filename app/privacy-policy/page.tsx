@@ -31,8 +31,8 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-      <p className="text-sm text-gold">Legal</p>
-      <h1 className="mt-2 font-serif text-6xl font-semibold leading-none text-white">
+      <p className="text-sm text-orange">Legal</p>
+      <h1 className="mt-2 font-serif text-6xl font-semibold leading-none text-foreground">
         Privacy Policy
       </h1>
       <p className="mt-5 text-muted">Last updated: May 16, 2026</p>
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
       <div className="mt-10 grid gap-5">
         {sections.map((section) => (
           <div key={section.title} className="glass-panel p-6">
-            <h2 className="font-serif text-3xl font-semibold text-white">{section.title}</h2>
+            <h2 className="font-serif text-3xl font-semibold text-foreground">{section.title}</h2>
             <p className="mt-3 leading-8 text-muted">{section.text}</p>
           </div>
         ))}

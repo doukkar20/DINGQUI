@@ -185,7 +185,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
         value={language}
         onChange={(event) => setLanguage(event.target.value as Language)}
         className={cn(
-          "h-10 rounded-full border border-white/10 bg-black/60 px-3 text-sm font-semibold text-white outline-none transition focus:border-gold/60",
+          "h-10 rounded-full border border-gray-200 bg-white px-3 text-sm font-semibold text-foreground outline-none transition focus:border-orange/60",
           compact && "w-full",
         )}
         aria-label={t("language.label")}

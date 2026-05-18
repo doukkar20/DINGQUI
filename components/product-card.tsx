@@ -30,7 +30,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       whileHover={{ y: -8 }}
       className="glass-card group flex h-full flex-col overflow-hidden"
     >
-      <LocalizedLink href={`/products/${productRoute}`} className="relative block aspect-[4/3] overflow-hidden bg-[#0b0b0b]">
+      <LocalizedLink href={`/products/${productRoute}`} className="relative block aspect-[4/3] overflow-hidden bg-light-gray">
         {primaryImage ? (
           <Image
             src={primaryImage}
@@ -44,19 +44,19 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {t("product.imageUnavailable")}
           </div>
         )}
-        <span className="absolute left-4 top-4 rounded-full border border-gold/40 bg-black/70 px-3 py-1 text-xs text-gold backdrop-blur">
+        <span className="absolute left-4 top-4 rounded-full border border-orange/40 bg-white/95 px-3 py-1 text-xs text-orange backdrop-blur">
           {productCategory}
         </span>
       </LocalizedLink>
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-4">
-          <LocalizedLink href={`/products/${productRoute}`} className="font-serif text-xl font-semibold leading-7 text-white transition group-hover:text-soft-gold">
+          <LocalizedLink href={`/products/${productRoute}`} className="font-serif text-xl font-semibold leading-7 text-foreground transition group-hover:text-deep-orange">
             {productName}
           </LocalizedLink>
           <LocalizedLink
             href={`/products/${productRoute}`}
-            className="mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-muted transition hover:border-gold/60 hover:text-gold"
+            className="mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gray-200 text-muted transition hover:border-orange/60 hover:text-orange"
             ariaLabel={`${t("product.view")} ${productName}`}
           >
             <ArrowUpRight size={17} />
@@ -64,12 +64,12 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         </div>
 
         <div className="mt-4 flex items-center gap-2 text-sm text-muted">
-          <BadgeInfo size={16} className="text-gold" />
+          <BadgeInfo size={16} className="text-orange" />
           <span>{t("product.specRows", { count: specificationCount })}</span>
         </div>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-6">
-          <span className="text-sm font-semibold text-soft-gold">
+          <span className="text-sm font-semibold text-deep-orange">
             {product.price.trim() || t("product.priceOnRequest")}
           </span>
           <AddToCartButton product={product} compact className="min-w-28" />

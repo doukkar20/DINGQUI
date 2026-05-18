@@ -21,24 +21,24 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-muted">{t("product.price")}</p>
-          <p className="mt-1 text-2xl font-semibold text-soft-gold">
+          <p className="mt-1 text-2xl font-semibold text-deep-orange">
             {product.price.trim() || t("product.priceOnRequest")}
           </p>
         </div>
 
-        <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/50 p-1">
+        <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-light-gray p-1">
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full text-muted transition hover:bg-white/10 hover:text-white"
+            className="grid h-10 w-10 place-items-center rounded-full text-muted transition hover:bg-orange/10 hover:text-foreground"
             onClick={() => setQuantity((value) => Math.max(1, value - 1))}
             aria-label="Decrease quantity"
           >
             <Minus size={16} />
           </button>
-          <span className="w-10 text-center text-sm font-semibold text-white">{quantity}</span>
+          <span className="w-10 text-center text-sm font-semibold text-foreground">{quantity}</span>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full text-muted transition hover:bg-white/10 hover:text-white"
+            className="grid h-10 w-10 place-items-center rounded-full text-muted transition hover:bg-orange/10 hover:text-foreground"
             onClick={() => setQuantity((value) => Math.min(99, value + 1))}
             aria-label="Increase quantity"
           >

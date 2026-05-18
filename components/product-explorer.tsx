@@ -60,18 +60,18 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
       <div className="glass-panel p-4 sm:p-5">
         <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <label className="relative block">
-            <Search className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-gold" size={20} />
+            <Search className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-orange" size={20} />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder={t("search.placeholder")}
               dir={direction}
-              className="h-14 w-full rounded-full border border-white/10 bg-black/60 pe-4 ps-12 text-sm text-white outline-none transition placeholder:text-muted focus:border-gold/60"
+              className="h-14 w-full rounded-full border border-gray-200 bg-white pe-4 ps-12 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-orange/60"
             />
           </label>
 
           <div className="flex items-center gap-3 text-sm text-muted">
-            <SlidersHorizontal size={18} className="text-gold" />
+            <SlidersHorizontal size={18} className="text-orange" />
             <span>{t("search.productsShown", { count: filtered.length })}</span>
           </div>
         </div>
@@ -87,8 +87,8 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
                 className={cn(
                   "shrink-0 rounded-full border px-4 py-2 text-sm transition",
                   category === item
-                    ? "border-gold bg-gold text-black"
-                    : "border-white/10 bg-white/[0.03] text-muted hover:border-gold/60 hover:text-white",
+                    ? "border-orange bg-orange text-white"
+                    : "border-gray-200 bg-white text-muted hover:border-orange/60 hover:text-foreground",
                 )}
               >
                 {item === "All" ? t("search.all") : categoryProduct ? getProductCategory(categoryProduct, language) : item}
@@ -107,8 +107,8 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
       </motion.div>
 
       {!filtered.length && (
-        <div className="mt-12 rounded-lg border border-white/10 bg-white/[0.03] p-10 text-center">
-          <h2 className="font-serif text-3xl font-semibold text-white">{t("search.noneTitle")}</h2>
+        <div className="mt-12 rounded-lg border border-gray-200 bg-white p-10 text-center">
+          <h2 className="font-serif text-3xl font-semibold text-foreground">{t("search.noneTitle")}</h2>
           <p className="mt-3 text-muted">{t("search.noneCopy")}</p>
         </div>
       )}

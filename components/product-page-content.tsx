@@ -26,17 +26,17 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
 
         <div>
           <div className="mb-5 flex flex-wrap gap-2 text-sm text-muted">
-            <LocalizedLink href="/shop" className="transition hover:text-gold">
+            <LocalizedLink href="/shop" className="transition hover:text-orange">
               <T k="nav.shop" />
             </LocalizedLink>
             <span>/</span>
-            <LocalizedLink href={`/shop?category=${categoryToSlug(product.categoryKey)}`} className="transition hover:text-gold">
+            <LocalizedLink href={`/shop?category=${categoryToSlug(product.categoryKey)}`} className="transition hover:text-orange">
               {productCategory}
             </LocalizedLink>
           </div>
 
-          <p className="text-sm text-gold"><T k="product.id" />: {product.product_id}</p>
-          <h1 className="mt-3 font-serif text-5xl font-semibold leading-tight text-white lg:text-6xl">
+          <p className="text-sm text-orange"><T k="product.id" />: {product.product_id}</p>
+          <h1 className="mt-3 font-serif text-5xl font-semibold leading-tight text-foreground lg:text-6xl">
             {productName}
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">
@@ -48,18 +48,18 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
           </div>
 
           <div className="mt-6 grid gap-3 text-sm text-muted sm:grid-cols-2">
-            <div className="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+            <div className="rounded-lg border border-gray-200 bg-white p-4">
               <T k="nav.categories" />
-              <span className="mt-1 block font-semibold text-white">{productCategory}</span>
+              <span className="mt-1 block font-semibold text-foreground">{productCategory}</span>
             </div>
             <a
               href={product.source_url}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-white/10 bg-white/[0.03] p-4 transition hover:border-gold/60 hover:text-soft-gold"
+              className="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-orange/60 hover:text-deep-orange"
             >
               <T k="product.source" />
-              <span className="mt-1 block break-all text-white">{product.source_url}</span>
+              <span className="mt-1 block break-all text-foreground">{product.source_url}</span>
             </a>
           </div>
         </div>
@@ -67,8 +67,8 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
 
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mb-6">
-          <p className="text-sm text-gold"><T k="product.specifications" /></p>
-          <h2 className="mt-2 font-serif text-4xl font-semibold text-white"><T k="product.specifications" /></h2>
+          <p className="text-sm text-orange"><T k="product.specifications" /></p>
+          <h2 className="mt-2 font-serif text-4xl font-semibold text-foreground"><T k="product.specifications" /></h2>
         </div>
         <SpecTable specifications={product.specificationTable} />
       </section>
@@ -76,8 +76,8 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
       {related.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <p className="text-sm text-gold"><T k="product.related" /></p>
-            <h2 className="mt-2 font-serif text-4xl font-semibold text-white">
+            <p className="text-sm text-orange"><T k="product.related" /></p>
+            <h2 className="mt-2 font-serif text-4xl font-semibold text-foreground">
               <T k="product.moreFrom" values={{ category: productCategory }} />
             </h2>
           </div>

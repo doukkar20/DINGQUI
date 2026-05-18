@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | DINGQI GROS",
   },
   description:
-    "DINGQI GROS is a black and gold DingQi tools storefront in Morocco with WhatsApp ordering and reservation requests.",
+    "DINGQI GROS is a modern orange and gray DingQi tools storefront in Morocco with WhatsApp ordering and reservation requests.",
   keywords: [
     "DINGQI GROS",
     "professional tools",

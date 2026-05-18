@@ -1,20 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #f5f5f5;
-  --card: #111111;
-  --gold: #d4af37;
-  --soft-gold: #f5d76e;
-  --muted: #a3a3a3;
+  --background: #f9fafb;
+  --foreground: #111827;
+  --card: #ffffff;
+  --orange: #f97316;
+  --deep-orange: #ea580c;
+  --soft-orange: #fdba74;
+  --dark-gray: #1f2937;
+  --medium-gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --muted: #6b7280;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --color-gold: var(--gold);
-  --color-soft-gold: var(--soft-gold);
+  --color-orange: var(--orange);
+  --color-deep-orange: var(--deep-orange);
+  --color-soft-orange: var(--soft-orange);
+  --color-dark-gray: var(--dark-gray);
+  --color-medium-gray: var(--medium-gray);
+  --color-light-gray: var(--light-gray);
   --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-cormorant);
@@ -32,9 +40,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(245, 215, 110, 0.04), transparent 28rem),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 84px),
-    #050505;
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 26rem),
+    linear-gradient(180deg, #fff7ed 0, #f9fafb 22rem, #f9fafb 100%);
   color: var(--foreground);
 }
 
@@ -71,15 +78,15 @@ html[dir="rtl"] input[dir="ltr"] {
   text-align: left;
 }
 
-html[dir="rtl"] .btn-gold,
+html[dir="rtl"] .btn-primary,
 html[dir="rtl"] .btn-ghost,
 html[dir="rtl"] .btn-icon {
   flex-direction: row-reverse;
 }
 
 body::selection {
-  background: var(--gold);
-  color: #050505;
+  background: var(--orange);
+  color: #ffffff;
 }
 
 a,
@@ -91,26 +98,26 @@ textarea {
 
 .hero-grid {
   background:
-    linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(249, 115, 22, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 114, 128, 0.1) 1px, transparent 1px);
   background-size: 74px 74px;
-  mask-image: linear-gradient(to bottom, black, transparent 86%);
-  opacity: 0.28;
+  mask-image: linear-gradient(to bottom, rgb(0 0 0), transparent 86%);
+  opacity: 0.34;
 }
 
-.hero-gold-sweep {
-  background: linear-gradient(112deg, transparent 20%, rgba(212, 175, 55, 0.13) 42%, transparent 62%);
-  filter: blur(18px);
+.hero-orange-sweep {
+  background: linear-gradient(112deg, transparent 20%, rgba(249, 115, 22, 0.18) 42%, transparent 62%);
+  filter: blur(22px);
   pointer-events: none;
 }
 
 .glass-card,
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(17, 17, 17, 0.86), rgba(8, 8, 8, 0.72));
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(18px);
+  border: 1px solid rgba(229, 231, 235, 0.95);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 45px rgba(31, 41, 55, 0.08);
+  backdrop-filter: blur(14px);
 }
 
 .glass-card {
@@ -121,13 +128,13 @@ textarea {
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.62);
+  border-color: rgba(249, 115, 22, 0.5);
   box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.48),
-    0 0 34px rgba(212, 175, 55, 0.16);
+    0 22px 60px rgba(31, 41, 55, 0.12),
+    0 0 28px rgba(249, 115, 22, 0.16);
 }
 
-.btn-gold,
+.btn-primary,
 .btn-ghost,
 .btn-icon {
   display: inline-flex;
@@ -145,31 +152,33 @@ textarea {
     box-shadow 180ms ease;
 }
 
-.btn-gold {
+.btn-primary {
   border-radius: 999px;
-  border: 1px solid rgba(245, 215, 110, 0.72);
-  background: linear-gradient(135deg, #f5d76e, #d4af37 48%, #9f7d19);
-  color: #050505;
+  border: 1px solid rgba(234, 88, 12, 0.2);
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #ffffff;
   padding: 0.85rem 1.25rem;
-  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.22);
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.24);
 }
 
-.btn-gold:hover {
+.btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 45px rgba(212, 175, 55, 0.32);
+  box-shadow: 0 16px 38px rgba(249, 115, 22, 0.34);
 }
 
 .btn-ghost {
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  color: #f5f5f5;
+  border: 1px solid rgba(209, 213, 219, 0.95);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--dark-gray);
   padding: 0.85rem 1.1rem;
 }
 
 .btn-ghost:hover {
-  border-color: rgba(212, 175, 55, 0.72);
-  color: var(--soft-gold);
+  border-color: rgba(249, 115, 22, 0.56);
+  color: var(--deep-orange);
+  box-shadow: 0 10px 26px rgba(249, 115, 22, 0.12);
+  transform: translateY(-1px);
 }
 
 .btn-icon {
@@ -177,14 +186,16 @@ textarea {
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  color: #f5f5f5;
+  border: 1px solid rgba(209, 213, 219, 0.95);
+  background: #ffffff;
+  color: var(--dark-gray);
 }
 
 .btn-icon:hover {
-  border-color: rgba(212, 175, 55, 0.72);
-  color: var(--soft-gold);
+  border-color: rgba(249, 115, 22, 0.56);
+  color: var(--deep-orange);
+  box-shadow: 0 10px 26px rgba(249, 115, 22, 0.12);
+  transform: translateY(-1px);
 }
 
 .cart-badge {
@@ -196,8 +207,8 @@ textarea {
   height: 20px;
   place-items: center;
   border-radius: 999px;
-  background: var(--gold);
-  color: #050505;
+  background: var(--orange);
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 800;
 }
@@ -206,9 +217,9 @@ textarea {
   min-height: 54px;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.42);
-  color: #f5f5f5;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: var(--foreground);
   outline: none;
   padding: 0 1rem;
   transition:
@@ -218,13 +229,13 @@ textarea {
 }
 
 .input-luxury::placeholder {
-  color: rgba(163, 163, 163, 0.75);
+  color: rgba(107, 114, 128, 0.75);
 }
 
 .input-luxury:focus {
-  border-color: rgba(212, 175, 55, 0.72);
-  background: rgba(0, 0, 0, 0.66);
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+  border-color: rgba(249, 115, 22, 0.72);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.13);
 }
 
 ::-webkit-scrollbar {
@@ -233,10 +244,10 @@ textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: #070707;
+  background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#f5d76e, #8c6d17);
+  background: linear-gradient(#fdba74, #ea580c);
   border-radius: 999px;
 }

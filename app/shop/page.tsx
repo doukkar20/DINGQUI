@@ -13,10 +13,10 @@ export default function ShopPage() {
 
   return (
     <>
-      <section className="border-b border-white/10 bg-white/[0.02]">
+      <section className="border-b border-gray-200 bg-light-gray">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <p className="text-sm text-gold"><T k="shop.eyebrow" /></p>
-          <h1 className="mt-2 max-w-4xl font-serif text-6xl font-semibold leading-none text-white">
+          <p className="text-sm text-orange"><T k="shop.eyebrow" /></p>
+          <h1 className="mt-2 max-w-4xl font-serif text-6xl font-semibold leading-none text-foreground">
             <T k="shop.title" />
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
