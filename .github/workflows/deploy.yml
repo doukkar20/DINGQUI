@@ -58,6 +58,8 @@ jobs:
 
       - name: Copy export to repository root
         run: |
+          rm -rf 404.html _next _not-found about cart categories checkout contact privacy-policy products shop terms-and-conditions
+          rm -f favicon.ico icon.jpg index.html robots.txt sitemap.xml
           cp -R out/. .
           touch .nojekyll
 
@@ -65,7 +67,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .nojekyll 404.html _next about cart categories checkout contact favicon.ico icon.jpg index.html privacy-policy products robots.txt shop sitemap.xml terms-and-conditions
+          git add .nojekyll 404.html _next _not-found about cart categories checkout contact favicon.ico icon.jpg index.html privacy-policy products robots.txt shop sitemap.xml terms-and-conditions
           if git diff --cached --quiet; then
             echo "No generated site changes to commit."
           else

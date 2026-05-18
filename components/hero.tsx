@@ -72,12 +72,12 @@ export function Hero({ products }: HeroProps) {
         transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <div className="relative z-10 mx-auto grid min-h-[720px] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(100vh-5rem)] lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10"
+          className="relative z-20"
         >
           <motion.div
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
@@ -139,16 +139,16 @@ export function Hero({ products }: HeroProps) {
           </div>
         </motion.div>
 
-        <div className="relative z-10 min-h-[500px] lg:min-h-[650px]">
+        <div className="relative z-10 mx-auto h-[520px] w-full max-w-[560px] lg:h-[610px]">
           <motion.div
-            className="absolute inset-x-0 top-10 mx-auto aspect-square max-w-[610px] rounded-full border border-orange/25 bg-[radial-gradient(circle,rgba(255,122,26,0.22),rgba(255,255,255,0.08)_38%,transparent_66%)] shadow-[0_0_120px_rgba(249,115,22,0.2)]"
+            className="absolute inset-x-0 top-12 mx-auto aspect-square w-[86%] max-w-[500px] rounded-full border border-orange/25 bg-[radial-gradient(circle,rgba(255,122,26,0.22),rgba(255,255,255,0.08)_38%,transparent_66%)] shadow-[0_0_120px_rgba(249,115,22,0.2)]"
             animate={{ rotate: 360 }}
             transition={{ duration: 48, repeat: Infinity, ease: "linear" }}
           />
           {heroProduct && (
             <motion.div
               data-cursor-product
-              className="spotlight-card metal-border absolute left-1/2 top-10 w-[86%] max-w-[560px] -translate-x-1/2 overflow-hidden rounded-lg bg-white/94 p-5 shadow-[0_34px_100px_rgba(0,0,0,0.42)] backdrop-blur-xl"
+              className="spotlight-card metal-border absolute left-1/2 top-20 w-[82%] max-w-[470px] -translate-x-1/2 overflow-hidden rounded-lg bg-white/94 p-4 shadow-[0_34px_100px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:top-24 lg:p-5"
               initial={{ opacity: 0, y: 36, rotate: -2 }}
               animate={{ opacity: 1, y: [0, -16, 0], rotate: -2 }}
               transition={{ opacity: { duration: 0.7 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
@@ -161,14 +161,14 @@ export function Hero({ products }: HeroProps) {
                   fill
                   preload
                   loading="eager"
-                  sizes="(min-width: 1024px) 560px, 92vw"
+                  sizes="(min-width: 1024px) 470px, 88vw"
                   className="object-contain p-7 drop-shadow-[0_24px_26px_rgba(17,24,39,0.24)]"
                 />
               </div>
               <div className="mt-5 flex items-end justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold text-orange">{getProductCategory(heroProduct, language)}</p>
-                  <h2 className="mt-1 text-2xl font-black leading-8 text-foreground">
+                  <h2 className="mt-1 text-xl font-black leading-7 text-foreground lg:text-2xl lg:leading-8">
                     {getProductName(heroProduct, language)}
                   </h2>
                 </div>
@@ -183,10 +183,10 @@ export function Hero({ products }: HeroProps) {
             <motion.div
               key={product.id}
               data-cursor-product
-              className="metal-border absolute hidden w-48 overflow-hidden rounded-lg bg-white/90 p-3 shadow-[0_24px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:block"
+              className="metal-border absolute hidden w-40 overflow-hidden rounded-lg bg-white/90 p-3 shadow-[0_24px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:block lg:w-44"
               style={{
-                left: index === 0 ? "0%" : index === 1 ? "70%" : "8%",
-                top: index === 0 ? "7%" : index === 1 ? "56%" : "74%",
+                left: index === 0 ? "2%" : index === 1 ? "60%" : "18%",
+                top: index === 0 ? "3%" : index === 1 ? "50%" : "76%",
               }}
               initial={{ opacity: 0, y: 24, scale: 0.94 }}
               animate={{ opacity: 1, y: [0, -12, 0], scale: 1 }}
@@ -196,7 +196,15 @@ export function Hero({ products }: HeroProps) {
               }}
             >
               <div className="relative aspect-[5/4] rounded-md bg-white">
-                <Image src={product.images[0]} alt={getProductImageAlt(product, language)} fill sizes="192px" className="object-contain p-3" />
+                <Image
+                  src={product.images[0]}
+                  alt={getProductImageAlt(product, language)}
+                  fill
+                  loading="eager"
+                  preload={index === 0}
+                  sizes="176px"
+                  className="object-contain p-3"
+                />
               </div>
               <p className="mt-3 text-xs font-semibold text-orange">{getProductCategory(product, language)}</p>
               <h3 className="mt-1 line-clamp-2 text-sm font-bold leading-5 text-foreground">
