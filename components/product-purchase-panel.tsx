@@ -16,8 +16,8 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="grid gap-6">
-    <div className="glass-panel p-6">
+    <div className="grid gap-6 lg:sticky lg:top-28">
+    <div className="glass-panel metal-border p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-muted">{t("product.price")}</p>
@@ -49,7 +49,7 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <AddToCartButton product={product} quantity={quantity} />
-        <a href="#reservation-form" className="btn-ghost justify-center">
+        <a href="#reservation-form" className="btn-ghost magnetic justify-center" data-cursor="cta">
           <MessageCircle size={18} />
           {t("product.whatsappOrder")}
         </a>

@@ -51,7 +51,7 @@ export function createReservationMessage({
     lines.push("", "ملخص السلة:", ...cartLines);
   }
 
-  lines.push("", "شكراً.");
+  lines.push("", "شكرا.");
 
   return lines.join("\n");
 }

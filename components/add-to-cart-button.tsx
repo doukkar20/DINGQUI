@@ -36,7 +36,8 @@ export function AddToCartButton({
       type="button"
       onClick={handleAdd}
       whileTap={{ scale: 0.97 }}
-      className={cn("btn-primary relative overflow-hidden", compact && "px-4 py-3", className)}
+      data-cursor="cta"
+      className={cn("btn-primary magnetic relative overflow-hidden", compact && "px-4 py-3", className)}
     >
       <AnimatePresence mode="wait" initial={false}>
         {added ? (

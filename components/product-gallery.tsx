@@ -17,13 +17,14 @@ export function ProductGallery({ title, imageAlt, images }: ProductGalleryProps)
   return (
     <div className="grid gap-4">
       <motion.div
-        className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_30px_90px_rgba(0,0,0,0.45)]"
+        data-cursor-product
+        className="metal-border relative aspect-square overflow-hidden rounded-lg bg-[radial-gradient(circle_at_center,#ffffff,#eef0f3)] shadow-[0_30px_90px_rgba(17,24,39,0.24)]"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
         {active ? (
-          <Image src={active} alt={imageAlt || title} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-8" />
+          <Image src={active} alt={imageAlt || title} fill preload loading="eager" sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-8 drop-shadow-[0_24px_24px_rgba(17,24,39,0.2)]" />
         ) : (
           <div className="flex h-full items-center justify-center bg-light-gray text-muted">
             Image unavailable

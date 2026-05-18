@@ -35,8 +35,8 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
             </LocalizedLink>
           </div>
 
-          <p className="text-sm text-orange"><T k="product.id" />: {product.product_id}</p>
-          <h1 className="mt-3 font-serif text-5xl font-semibold leading-tight text-foreground lg:text-6xl">
+          <p className="text-sm font-bold text-orange"><T k="product.id" />: {product.product_id}</p>
+          <h1 className="mt-3 text-5xl font-black leading-tight text-foreground lg:text-6xl">
             {productName}
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">
@@ -48,7 +48,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
           </div>
 
           <div className="mt-6 grid gap-3 text-sm text-muted sm:grid-cols-2">
-            <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <div className="glass-panel p-4">
               <T k="nav.categories" />
               <span className="mt-1 block font-semibold text-foreground">{productCategory}</span>
             </div>
@@ -56,7 +56,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
               href={product.source_url}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-orange/60 hover:text-deep-orange"
+              className="glass-panel p-4 transition hover:border-orange/60 hover:text-deep-orange"
             >
               <T k="product.source" />
               <span className="mt-1 block break-all text-foreground">{product.source_url}</span>
@@ -68,7 +68,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mb-6">
           <p className="text-sm text-orange"><T k="product.specifications" /></p>
-          <h2 className="mt-2 font-serif text-4xl font-semibold text-foreground"><T k="product.specifications" /></h2>
+          <h2 className="mt-2 text-4xl font-black text-foreground"><T k="product.specifications" /></h2>
         </div>
         <SpecTable specifications={product.specificationTable} />
       </section>
@@ -77,7 +77,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
         <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="mb-6">
             <p className="text-sm text-orange"><T k="product.related" /></p>
-            <h2 className="mt-2 font-serif text-4xl font-semibold text-foreground">
+            <h2 className="mt-2 text-4xl font-black text-foreground">
               <T k="product.moreFrom" values={{ category: productCategory }} />
             </h2>
           </div>

@@ -44,9 +44,9 @@ export default function Home() {
           ["home.stats.categories", categories.length.toString()],
           ["home.stats.assets", products.reduce((total, product) => total + product.images.length, 0).toString()],
         ].map(([label, value]) => (
-          <div key={label} className="glass-panel p-6">
+          <div key={label} className="glass-panel metal-border p-6">
             <p className="text-sm text-muted"><T k={label as "home.stats.products"} /></p>
-            <p className="mt-2 font-serif text-5xl font-semibold text-foreground">{value}</p>
+            <p className="mt-2 text-5xl font-black text-foreground">{value}</p>
           </div>
         ))}
       </MotionSection>
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm text-orange"><T k="home.featuredEyebrow" /></p>
-            <h2 className="mt-2 font-serif text-5xl font-semibold text-foreground">
+            <h2 className="mt-2 text-5xl font-black text-foreground">
               <T k="home.featuredTitle" />
             </h2>
           </div>
@@ -71,17 +71,17 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="border-y border-gray-200 bg-light-gray">
+      <MotionSection className="premium-shell border-y border-white/10">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
             <p className="text-sm text-orange"><T k="nav.categories" /></p>
-            <h2 className="mt-2 font-serif text-5xl font-semibold text-foreground">
+            <h2 className="mt-2 text-5xl font-black text-white">
               <T k="home.categoriesTitle" />
             </h2>
-            <p className="mt-5 leading-8 text-muted">
+            <p className="mt-5 leading-8 text-white/68">
               <T k="home.categoriesCopy" />
             </p>
-            <LocalizedLink href="/categories" className="btn-primary mt-8">
+            <LocalizedLink href="/categories" className="btn-primary magnetic mt-8" data-cursor="cta">
             <T k="home.browseCategories" />
               <ArrowRight size={18} />
             </LocalizedLink>
@@ -99,11 +99,11 @@ export default function Home() {
           {commitments.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="glass-panel p-6">
+              <div key={item.title} className="glass-panel metal-border p-6">
                 <div className="grid h-12 w-12 place-items-center rounded-full border border-orange/40 bg-orange/10 text-orange">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-5 font-serif text-2xl font-semibold text-foreground"><T k={item.title as "commitments.source.title"} /></h3>
+                <h3 className="mt-5 text-2xl font-black text-foreground"><T k={item.title as "commitments.source.title"} /></h3>
                 <p className="mt-3 text-sm leading-7 text-muted"><T k={item.text as "commitments.source.text"} /></p>
               </div>
             );

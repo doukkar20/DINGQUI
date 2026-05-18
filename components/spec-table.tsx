@@ -12,7 +12,7 @@ export function SpecTable({ specifications }: SpecTableProps) {
   const { direction, language, t } = useI18n();
   if (!specifications.rows.length) {
     return (
-      <div className="rounded-lg border border-gray-200 bg-white p-6 text-muted">
+      <div className="glass-panel p-6 text-muted">
         {t("product.noSpecs")}
       </div>
     );
@@ -24,10 +24,10 @@ export function SpecTable({ specifications }: SpecTableProps) {
   const localizedHeaders = headers.map((header) => getLocalizedText(header, language));
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+    <div className="glass-panel overflow-hidden p-0">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[620px] text-left text-sm" dir={direction}>
-          <thead className="bg-orange text-white">
+          <thead className="bg-graphite text-white">
             <tr>
               {localizedHeaders.map((header) => (
                 <th key={header} className="px-5 py-4 font-semibold">
@@ -38,7 +38,7 @@ export function SpecTable({ specifications }: SpecTableProps) {
           </thead>
           <tbody>
             {specifications.rows.map((row, rowIndex) => (
-              <tr key={`${row.join("-")}-${rowIndex}`} className="border-t border-gray-200">
+              <tr key={`${row.join("-")}-${rowIndex}`} className="border-t border-gray-200 transition hover:bg-orange/5">
                 {localizedHeaders.map((header, columnIndex) => (
                   <td key={`${header}-${columnIndex}`} className="px-5 py-4 text-muted">
                     {row[columnIndex] || ""}

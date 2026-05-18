@@ -13,13 +13,13 @@ export default function ShopPage() {
 
   return (
     <>
-      <section className="border-b border-gray-200 bg-light-gray">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="premium-shell border-b border-white/10">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <p className="text-sm text-orange"><T k="shop.eyebrow" /></p>
-          <h1 className="mt-2 max-w-4xl font-serif text-6xl font-semibold leading-none text-foreground">
+          <h1 className="mt-2 max-w-4xl text-5xl font-black leading-none text-white sm:text-6xl">
             <T k="shop.title" />
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/70">
             <T k="shop.copy" />
           </p>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Cairo, Cormorant_Garamond, Geist } from "next/font/google";
 import { CartProvider } from "@/components/cart-provider";
+import { CustomCursor } from "@/components/custom-cursor";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { I18nProvider } from "@/lib/i18n";
@@ -65,6 +66,7 @@ export default function RootLayout({
         <Suspense>
           <I18nProvider>
             <CartProvider>
+              <CustomCursor />
               <div className="flex min-h-screen flex-col">
                 <Header />
                 <main className="flex-1">{children}</main>

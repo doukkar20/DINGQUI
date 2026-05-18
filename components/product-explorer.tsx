@@ -57,7 +57,7 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="glass-panel p-4 sm:p-5">
+      <div className="glass-panel metal-border p-4 sm:p-5">
         <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <label className="relative block">
             <Search className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-orange" size={20} />
@@ -66,7 +66,7 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
               onChange={(event) => setQuery(event.target.value)}
               placeholder={t("search.placeholder")}
               dir={direction}
-              className="h-14 w-full rounded-full border border-gray-200 bg-white pe-4 ps-12 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-orange/60"
+              className="h-14 w-full rounded-full border border-gray-200 bg-white pe-4 ps-12 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-orange/60 focus:shadow-[0_0_0_4px_rgba(249,115,22,0.12)]"
             />
           </label>
 
@@ -85,9 +85,9 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
                 type="button"
                 onClick={() => setSelectedCategory(item)}
                 className={cn(
-                  "shrink-0 rounded-full border px-4 py-2 text-sm transition",
+                  "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
                   category === item
-                    ? "border-orange bg-orange text-white"
+                    ? "border-orange bg-graphite text-white shadow-[0_0_22px_rgba(249,115,22,0.18)]"
                     : "border-gray-200 bg-white text-muted hover:border-orange/60 hover:text-foreground",
                 )}
               >

@@ -27,7 +27,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
     return (
       <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <div className="glass-panel p-10">
-          <h1 className="font-serif text-5xl font-semibold text-foreground">{t("cart.emptyTitle")}</h1>
+          <h1 className="text-5xl font-black text-foreground">{t("cart.emptyTitle")}</h1>
           <p className="mt-4 text-muted">{t("cart.emptyCopy")}</p>
           <LocalizedLink href="/shop" className="btn-primary mt-8">
             {t("actions.browseTools")}
@@ -44,7 +44,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
           <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-sm text-orange">{t("cart.eyebrow")}</p>
-              <h1 className="mt-2 font-serif text-5xl font-semibold text-foreground">{t("cart.title")}</h1>
+              <h1 className="mt-2 text-5xl font-black text-foreground">{t("cart.title")}</h1>
             </div>
             <button type="button" onClick={clearCart} className="btn-ghost self-start">
               <Trash2 size={17} />
@@ -54,7 +54,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
 
           <div className="grid gap-4">
             {cartProducts.map(({ item, product }) => (
-              <article key={product.id} className="glass-card grid gap-5 p-4 sm:grid-cols-[130px_1fr_auto] sm:items-center">
+              <article key={product.id} className="glass-card metal-border grid gap-5 p-4 sm:grid-cols-[130px_1fr_auto] sm:items-center">
                 <LocalizedLink href={`/products/${getProductRoute(product)}`} className="relative aspect-square overflow-hidden rounded-lg bg-white">
                   {product.images[0] && (
                     <Image src={product.images[0]} alt={getProductImageAlt(product, language)} fill sizes="130px" className="object-contain p-3" />
@@ -62,7 +62,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
                 </LocalizedLink>
                 <div>
                   <p className="text-sm text-orange">{getProductCategory(product, language)}</p>
-                  <LocalizedLink href={`/products/${getProductRoute(product)}`} className="mt-1 block font-serif text-2xl font-semibold text-foreground transition hover:text-deep-orange">
+                  <LocalizedLink href={`/products/${getProductRoute(product)}`} className="mt-1 block text-2xl font-black text-foreground transition hover:text-deep-orange">
                     {getProductName(product, language)}
                   </LocalizedLink>
                   <p className="mt-2 text-sm text-muted">{t("product.id")}: {product.product_id}</p>
@@ -100,8 +100,8 @@ export function CartPageClient({ products }: CartPageClientProps) {
           </div>
         </div>
 
-        <aside className="glass-panel h-fit p-6 lg:sticky lg:top-28">
-          <h2 className="font-serif text-3xl font-semibold text-foreground">{t("cart.summary")}</h2>
+        <aside className="glass-panel metal-border h-fit p-6 lg:sticky lg:top-28">
+          <h2 className="text-3xl font-black text-foreground">{t("cart.summary")}</h2>
           <div className="mt-5 grid gap-4 text-sm">
             <div className="flex justify-between border-b border-gray-200 pb-4 text-muted">
               <span>{t("cart.items")}</span>

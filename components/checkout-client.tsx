@@ -29,7 +29,7 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
     return (
       <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <div className="glass-panel p-10">
-          <h1 className="font-serif text-5xl font-semibold text-foreground">{t("checkout.readyTitle")}</h1>
+          <h1 className="text-5xl font-black text-foreground">{t("checkout.readyTitle")}</h1>
           <p className="mt-4 text-muted">{t("checkout.readyCopy")}</p>
           <LocalizedLink href="/shop" className="btn-primary mt-8">
             {t("hero.shop")}
@@ -49,8 +49,8 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
           title={t("checkout.title")}
         />
 
-        <aside className="glass-panel h-fit p-6 lg:sticky lg:top-28">
-          <h2 className="font-serif text-3xl font-semibold text-foreground">{t("cart.summary")}</h2>
+        <aside className="glass-panel metal-border h-fit p-6 lg:sticky lg:top-28">
+          <h2 className="text-3xl font-black text-foreground">{t("cart.summary")}</h2>
           <div className="mt-6 grid gap-4">
             {cartProducts.map(({ item, product }) => (
               <div key={product.id} className="border-b border-gray-200 pb-4">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import {
   createContext,
+  type AnchorHTMLAttributes,
   type ReactNode,
   useCallback,
   useContext,
@@ -159,23 +160,24 @@ export function LocalizedLink({
   className,
   onClick,
   ariaLabel,
+  ...props
 }: {
   href: string;
   children: ReactNode;
   className?: string;
   onClick?: () => void;
   ariaLabel?: string;
-}) {
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children" | "className" | "onClick" | "aria-label">) {
   const localizedHref = useLocalizedHref();
 
   return (
-    <Link href={localizedHref(href)} className={className} onClick={onClick} aria-label={ariaLabel}>
+    <Link href={localizedHref(href)} className={className} onClick={onClick} aria-label={ariaLabel} {...props}>
       {children}
     </Link>
   );
 }
 
-export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
+export function LanguageSwitcher({ compact = false, onChange }: { compact?: boolean; onChange?: () => void }) {
   const { language, setLanguage, t } = useI18n();
 
   return (
@@ -183,7 +185,10 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       <span className="sr-only">{t("language.label")}</span>
       <select
         value={language}
-        onChange={(event) => setLanguage(event.target.value as Language)}
+        onChange={(event) => {
+          setLanguage(event.target.value as Language);
+          onChange?.();
+        }}
         className={cn(
           "h-10 rounded-full border border-gray-200 bg-white px-3 text-sm font-semibold text-foreground outline-none transition focus:border-orange/60",
           compact && "w-full",
