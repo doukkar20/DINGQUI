@@ -1,6 +1,6 @@
-:HL["/DINGQUI/_next/static/chunks/0ml3zqghrjoy6.css","style"]
+:HL["/DINGQUI/_next/static/chunks/0rh77otf_i90~.css","style"]
 :HL["/DINGQUI/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/DINGQUI/_next/static/media/9ff27b8a0a8f3dc0-s.p.170gfl_1xpie6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/DINGQUI/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/DINGQUI/_next/static/media/d41831e24743a3c1-s.p.02r-fjhi~6g_a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":20,"slots":{"children":{"name":"products","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"galss-knife-63105-1539","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"q-_pGuVneRLc2bnK1RnBp"}
+0:{"tree":{"name":"","param":null,"prefetchHints":20,"slots":{"children":{"name":"products","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"galss-knife-63105-1539","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"ePh6xwK8par_h6872-1XV"}
