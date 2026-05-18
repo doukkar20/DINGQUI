@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={`${geistSans.variable} ${cormorant.variable} ${cairo.variable}`}>
+    <html lang="ar-MA" dir="rtl" className={`${geistSans.variable} ${cormorant.variable} ${cairo.variable}`}>
       <body>
         <Suspense>
           <I18nProvider>

@@ -1,5 +1,14 @@
+export type LanguageCode = "ar-MA" | "fr" | "en";
+
+export type LocalizedText = Partial<Record<LanguageCode, string>>;
+
+export type LocalizedSpecification = {
+  label: LocalizedText;
+  value: string;
+};
+
 export type SpecificationTable = {
-  headers: string[];
+  headers: LocalizedText[];
   rows: string[][];
   records: Record<string, string>[];
 };
@@ -7,15 +16,28 @@ export type SpecificationTable = {
 export type Product = {
   id: string;
   product_id: string;
-  slug: string;
-  title: string;
-  category: string;
-  description: string;
-  specifications: SpecificationTable;
+  sku?: string;
+  route_slug: string;
+  slug: LocalizedText;
+  name: LocalizedText;
+  categoryKey: string;
+  category: LocalizedText;
+  shortDescription: LocalizedText;
+  description: LocalizedText;
+  specifications: LocalizedSpecification[];
+  specificationRows: LocalizedSpecification[][];
+  specificationTable: SpecificationTable;
+  seo?: {
+    title?: LocalizedText;
+    description?: LocalizedText;
+  };
+  imageAlt?: LocalizedText;
   images: string[];
   source_url: string;
   price: string;
   imported_at: string;
+  original_title?: string;
+  original_category?: string;
 };
 
 export type CartItem = {

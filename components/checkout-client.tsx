@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { useCart } from "@/components/cart-provider";
 import { ReservationForm } from "@/components/reservation-form";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
+import { getProductName } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { createCartLines } from "@/lib/whatsapp";
 
@@ -13,7 +14,7 @@ type CheckoutClientProps = {
 
 export function CheckoutClient({ products }: CheckoutClientProps) {
   const { items, clearCart } = useCart();
-  const { t } = useI18n();
+  const { language, t } = useI18n();
   const productMap = useMemo(
     () => new Map(products.map((product) => [product.id, product])),
     [products],
@@ -54,7 +55,7 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
             {cartProducts.map(({ item, product }) => (
               <div key={product.id} className="border-b border-white/10 pb-4">
                 <div className="flex justify-between gap-4">
-                  <p className="text-sm font-semibold leading-6 text-white">{product.title}</p>
+                  <p className="text-sm font-semibold leading-6 text-white">{getProductName(product, language)}</p>
                   <span className="text-sm text-gold">x{item.quantity}</span>
                 </div>
                 <p className="mt-1 text-xs text-muted">{t("product.id")}: {product.product_id}</p>

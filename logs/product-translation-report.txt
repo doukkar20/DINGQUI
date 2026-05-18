@@ -1,0 +1,246 @@
+DINGQI GROS product translation report
+Generated: 2026-05-18T12:47:32.782Z
+
+Products processed: 59
+Products localized: 59
+Existing localized products preserved: 0
+Duplicates created: 0
+Errors: 0
+
+Localized products:
+- 1341: MAGNETIC WELDING HOLDER EG02003-EG02004
+  ar-MA: حامل مغناطيسي للتلحيم EG02003-EG02004
+  fr: Support magnétique de soudage EG02003-EG02004
+  en: Magnetic Welding Holder EG02003-EG02004
+- 1329: IRON PADLOCK 151232-151275
+  ar-MA: قفل حديدي 151232-151275
+  fr: Cadenas en fer 151232-151275
+  en: Iron Padlock 151232-151275
+- 1298: SHELF BRACKET GA04001-GA04006
+  ar-MA: دعامة رف GA04001-GA04006
+  fr: Support d'étagère GA04001-GA04006
+  en: Shelf Bracket GA04001-GA04006
+- 1319: CORDLESS AIR PUMP JE11401
+  ar-MA: مضخة هواء ببطارية JE11401
+  fr: Pompe à air sans fil JE11401
+  en: Cordless Air Pump JE11401
+- 1449: CORDLESS BLOWER JE08001
+  ar-MA: منفاخ ببطارية JE08001
+  fr: Souffleur sans fil JE08001
+  en: Cordless Blower JE08001
+- 972: RATCHET WRENCH 14103-14104
+  ar-MA: مفتاح راتشي 14103-14104
+  fr: Clé à cliquet 14103-14104
+  en: Ratchet Wrench 14103-14104
+- 1030: MINI COMBINATION PLIERS 21001
+  ar-MA: زرادية صغيرة متعددة الاستعمال 21001
+  fr: Mini pince universelle 21001
+  en: Mini Combination Pliers 21001
+- 1061: TOWER PINCER BLACK WITH ORANGE 24001
+  ar-MA: كماشة تاور كحلة وبرتقالية 24001
+  fr: Tenaille tower noire et orange 24001
+  en: Tower Pincer Black with Orange 24001
+- 1062: END CUTTING PLIERS WITH HEAD CARD 24106-24108
+  ar-MA: كماشة قطع أمامي 24106-24108
+  fr: Pince coupante frontale 24106-24108
+  en: End Cutting Pliers 24106-24108
+- 1091: FITTER HAMMER 31102-31120
+  ar-MA: مطرقة ميكانيكي 31102-31120
+  fr: Marteau de mécanicien 31102-31120
+  en: Fitter Hammer 31102-31120
+- 1106: TUBE CUTTER 63009
+  ar-MA: قطاعة الأنابيب 63009
+  fr: Coupe-tube 63009
+  en: Tube Cutter 63009
+- 1117: UTILITY KNIFE 63112
+  ar-MA: كتر 63112
+  fr: Cutter 63112
+  en: Utility Knife 63112
+- 1277: CLOCK SCREWDRIVER SET FH1001
+  ar-MA: طقم مفكات دقيقة FH1001
+  fr: Jeu de tournevis de précision FH1001
+  en: Precision Screwdriver Set FH1001
+- 1163: SET 5 ALLEN SCHLUSSEL 1071005
+  ar-MA: طقم 5 مفاتيح ألان 1071005
+  fr: Jeu de 5 clés Allen 1071005
+  en: Set of 5 Allen Keys 1071005
+- 1352: SPARK PLUG WRENCH 19113
+  ar-MA: مفتاح البوجي 19113
+  fr: Clé à bougie 19113
+  en: Spark Plug Wrench 19113
+- 1462: RUBBER HAMMER CE01435
+  ar-MA: مطرقة مطاطية CE01435
+  fr: Maillet en caoutchouc CE01435
+  en: Rubber Hammer CE01435
+- 1470: HOE AF80301
+  ar-MA: فأس صغير للحديقة AF80301
+  fr: Binette AF80301
+  en: Hoe AF80301
+- 1478: MAGNETIC SCREW DRIVER BIT AL02401
+  ar-MA: رأس مفك مغناطيسي AL02401
+  fr: Embout de tournevis magnétique AL02401
+  en: Magnetic Screwdriver Bit AL02401
+- 1505: SCREWDRIVER BIT 68013
+  ar-MA: رأس مفك 68013
+  fr: Embout de tournevis 68013
+  en: Screwdriver Bit 68013
+- 1539: GALSS KNIFE 63105
+  ar-MA: قطاعة الزجاج 63105
+  fr: Coupe-verre 63105
+  en: Glass Knife 63105
+- 1545: RUBBER HAMMER 35008 35024
+  ar-MA: مطرقة مطاطية 35008 35024
+  fr: Maillet en caoutchouc 35008 35024
+  en: Rubber Hammer 35008 35024
+- 264: GARDEN SCISSORS 44208 44210
+  ar-MA: مقص الحديقة 44208 44210
+  fr: Sécateur de jardin 44208 44210
+  en: Garden Scissors 44208 44210
+- 266: HEDGE SHEARS 40401001
+  ar-MA: مقص السياج 40401001
+  fr: Cisaille à haies 40401001
+  en: Hedge Shears 40401001
+- 1432: 5 LINE LASER LEVEL EC03802
+  ar-MA: ميزان ليزر 5 خطوط EC03802
+  fr: Niveau laser 5 lignes EC03802
+  en: 5 Line Laser Level EC03802
+- 1391: EXPANSION SCREW KJ00600
+  ar-MA: برغي تمدد KJ00600
+  fr: Vis d'expansion KJ00600
+  en: Expansion Screw KJ00600
+- 420: HEAVY DUTY STAPLE GUN 113001
+  ar-MA: دباسة قوية 113001
+  fr: Agrafeuse robuste 113001
+  en: Heavy Duty Staple Gun 113001
+- 417: HAND RIVETER KB01001-KB01003
+  ar-MA: ماكينة برشام يدوية KB01001-KB01003
+  fr: Pince à riveter manuelle KB01001-KB01003
+  en: Hand Riveter KB01001-KB01003
+- 1549: SCREWDRIVER SET 68001
+  ar-MA: طقم مفكات 68001
+  fr: Jeu de tournevis 68001
+  en: Screwdriver Set 68001
+- 1475: ROLLER TYPE TUBE CUTTER FC01401
+  ar-MA: قطاعة أنابيب بالرول FC01401
+  fr: Coupe-tube à galet FC01401
+  en: Roller Type Tube Cutter FC01401
+- 1428: FLOODING LIGHT BATTERY VERSION RA02405
+  ar-MA: كشاف ضو ببطارية RA02405
+  fr: Projecteur à batterie RA02405
+  en: Battery Flood Light RA02405
+- 1512: RATCHETING SCREWDRIVER SET 68647
+  ar-MA: طقم مفك راتشي 68647
+  fr: Jeu de tournevis à cliquet 68647
+  en: Ratcheting Screwdriver Set 68647
+- 1525: AIR SPRAY GUN KITS 121009
+  ar-MA: طقم مسدس صباغة هوائي 121009
+  fr: Kit pistolet de peinture pneumatique 121009
+  en: Air Spray Gun Kit 121009
+- 1530: HEX SHANK AUGER 1333008 1333016
+  ar-MA: مثقاب خشب بساق سداسية 1333008 1333016
+  fr: Mèche tarière à queue hexagonale 1333008 1333016
+  en: Hex Shank Auger 1333008 1333016
+- 1533: AIR COMPRESSOR 10080103 10080110
+  ar-MA: كمبريسور هواء 10080103 10080110
+  fr: Compresseur d'air 10080103 10080110
+  en: Air Compressor 10080103 10080110
+- 1461: TOOLS BOX SET 101001111
+  ar-MA: طقم أدوات مع صندوق 101001111
+  fr: Coffret d'outils 101001111
+  en: Tool Box Set 101001111
+- 1468: ROUND SANDER JC05403
+  ar-MA: صنفرة دائرية JC05403
+  fr: Ponceuse ronde JC05403
+  en: Round Sander JC05403
+- 1484: FLAMETHROWER 12003SW307
+  ar-MA: مشعل غاز 12003SW307
+  fr: Chalumeau à gaz 12003SW307
+  en: Gas Torch 12003SW307
+- 1379: ALTERNATOR VC02312
+  ar-MA: مولد كهربائي VC02312
+  fr: Alternateur VC02312
+  en: Alternator VC02312
+- 234: GASOLINE SAW GUIDE BARD G02401-DG02406 DZ04401
+  ar-MA: سكة منشار بنزين G02401-DG02406 DZ04401
+  fr: Guide de scie à essence G02401-DG02406 DZ04401
+  en: Gasoline Saw Guide Bar G02401-DG02406 DZ04401
+- 1422: HEAT GUN LA01403
+  ar-MA: مسدس هواء سخون LA01403
+  fr: Décapeur thermique LA01403
+  en: Heat Gun LA01403
+- 1429: WOOD CHISEL 37025A
+  ar-MA: إزميل الخشب 37025A
+  fr: Ciseau à bois 37025A
+  en: Wood Chisel 37025A
+- 1434: UTILITY KNIFE FC03201
+  ar-MA: كتر FC03201
+  fr: Cutter FC03201
+  en: Utility Knife FC03201
+- 243: ROUND CHAIN SAW CHAIN DG02101-DG02103
+  ar-MA: سلسلة منشار دائري DG02101-DG02103
+  fr: Chaîne de tronçonneuse ronde DG02101-DG02103
+  en: Round Chain Saw Chain DG02101-DG02103
+- 278: HEDGE SHEARS 40401003
+  ar-MA: مقص السياج 40401003
+  fr: Cisaille à haies 40401003
+  en: Hedge Shears 40401003
+- 300: RECIPROCATING SAW BLADE DG0101 DG0102
+  ar-MA: شفرة منشار ترددي DG0101 DG0102
+  fr: Lame de scie sabre DG0101 DG0102
+  en: Reciprocating Saw Blade DG0101 DG0102
+- 302: GARDEN SCISSORS 44212
+  ar-MA: مقص الحديقة 44212
+  fr: Sécateur de jardin 44212
+  en: Garden Scissors 44212
+- 304: PLASTIC SPRAY NOZZLE 48003
+  ar-MA: رأس رش بلاستيك 48003
+  fr: Buse de pulvérisation plastique 48003
+  en: Plastic Spray Nozzle 48003
+- 537: GLUE GUN 124100
+  ar-MA: مسدس السيليكون 124100
+  fr: Pistolet à colle 124100
+  en: Glue Gun 124100
+- 526: G CLAMP 75302-75308
+  ar-MA: مشبك G 75302-75308
+  fr: Serre-joint G 75302-75308
+  en: G Clamp 75302-75308
+- 523: BENCH VICE NODULAR CAST IRON 75100-75150
+  ar-MA: منجلة طابلة من حديد قوي 75100-75150
+  fr: Étau d'établi en fonte nodulaire 75100-75150
+  en: Nodular Cast Iron Bench Vice 75100-75150
+- 514: PVC WELDING MACHINE 63004
+  ar-MA: ماكينة تلحيم PVC 63004
+  fr: Machine à souder PVC 63004
+  en: PVC Welding Machine 63004
+- 333: AUTO-DARKENING WELDING HELMET 91201
+  ar-MA: قناع تلحيم أوتوماتيكي 91201
+  fr: Masque de soudage automatique 91201
+  en: Auto-Darkening Welding Helmet 91201
+- 679: HAND SCREWS EXTRACTOR MF1006-MF1012
+  ar-MA: مستخرج البراغي اليدوي MF1006-MF1012
+  fr: Extracteur de vis manuel MF1006-MF1012
+  en: Hand Screw Extractor MF1006-MF1012
+- 662: MIXING BAR LF01201-LF01202
+  ar-MA: عود خلط LF01201-LF01202
+  fr: Tige de mélange LF01201-LF01202
+  en: Mixing Bar LF01201-LF01202
+- 661: MIXING BAR LF01101
+  ar-MA: عود خلط LF01101
+  fr: Tige de mélange LF01101
+  en: Mixing Bar LF01101
+- 637: HINGE BORING BIT 136315-136360
+  ar-MA: ريشة ثقب المفصلات 136315-136360
+  fr: Mèche pour charnières 136315-136360
+  en: Hinge Boring Bit 136315-136360
+- 1320: CORDLESS AIR PUMP JE11402
+  ar-MA: مضخة هواء ببطارية JE11402
+  fr: Pompe à air sans fil JE11402
+  en: Cordless Air Pump JE11402
+- 1317: CORDLESS PRESSURE WASHER JE09001
+  ar-MA: غسالة ضغط ببطارية JE09001
+  fr: Nettoyeur haute pression sans fil JE09001
+  en: Cordless Pressure Washer JE09001
+- 1310: CORDLESS DRILL 10050302
+  ar-MA: دريل ببطارية 10050302
+  fr: Perceuse sans fil 10050302
+  en: Cordless Drill 10050302

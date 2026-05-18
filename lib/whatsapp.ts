@@ -1,4 +1,5 @@
 import type { CartItem, CheckoutDetails, Product, ReservationDetails } from "@/lib/types";
+import { getProductName } from "@/lib/products";
 
 export const whatsappNumber = "212626018950";
 export const displayPhoneNumber = "0626-018950";
@@ -41,7 +42,7 @@ export function createReservationMessage({
     lines.push(
       "",
       "تفاصيل المنتج:",
-      `${product.title} | ID: ${product.product_id}`,
+      `${getProductName(product, "ar-MA")} | ID: ${product.product_id}`,
       product.source_url,
     );
   }
@@ -62,7 +63,7 @@ export function createProductMessage(product: Product, quantity = 1): string {
       phone: "",
       city: "",
       address: "",
-      productName: product.title,
+      productName: getProductName(product, "ar-MA"),
       quantity: String(quantity),
       notes: "",
     },
@@ -74,7 +75,7 @@ export function createCartLines(items: CartItem[], products: Product[]): string[
   return items.map((item) => {
     const product = products.find((entry) => entry.id === item.productId);
     return product
-      ? `- ${product.title} | ID: ${product.product_id} | الكمية: ${item.quantity}`
+      ? `- ${getProductName(product, "ar-MA")} | ID: ${product.product_id} | الكمية: ${item.quantity}`
       : `- Product ID: ${item.productId} | الكمية: ${item.quantity}`;
   });
 }

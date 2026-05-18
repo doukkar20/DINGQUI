@@ -3,6 +3,7 @@
 import { Send } from "lucide-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { useI18n } from "@/lib/i18n";
+import { getProductName } from "@/lib/products";
 import type { Product, ReservationDetails } from "@/lib/types";
 import { buildWhatsAppUrl, createReservationMessage } from "@/lib/whatsapp";
 
@@ -36,8 +37,8 @@ export function ReservationForm({
   cartLines = [],
   title,
 }: ReservationFormProps) {
-  const { direction, t } = useI18n();
-  const defaultProductName = product?.title || productName || "";
+  const { direction, language, t } = useI18n();
+  const defaultProductName = product ? getProductName(product, language) : productName || "";
   const [details, setDetails] = useState(() => initialDetails(defaultProductName, quantity));
   const hasCart = cartLines.length > 0;
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useMemo } from "react";
 import { useCart } from "@/components/cart-provider";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
+import { getProductCategory, getProductImageAlt, getProductName, getProductRoute } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
 type CartPageClientProps = {
@@ -13,7 +14,7 @@ type CartPageClientProps = {
 
 export function CartPageClient({ products }: CartPageClientProps) {
   const { items, updateQuantity, removeItem, clearCart } = useCart();
-  const { t } = useI18n();
+  const { language, t } = useI18n();
   const productMap = useMemo(
     () => new Map(products.map((product) => [product.id, product])),
     [products],
@@ -54,15 +55,15 @@ export function CartPageClient({ products }: CartPageClientProps) {
           <div className="grid gap-4">
             {cartProducts.map(({ item, product }) => (
               <article key={product.id} className="glass-card grid gap-5 p-4 sm:grid-cols-[130px_1fr_auto] sm:items-center">
-                <LocalizedLink href={`/products/${product.slug}`} className="relative aspect-square overflow-hidden rounded-lg bg-white">
+                <LocalizedLink href={`/products/${getProductRoute(product)}`} className="relative aspect-square overflow-hidden rounded-lg bg-white">
                   {product.images[0] && (
-                    <Image src={product.images[0]} alt={product.title} fill sizes="130px" className="object-contain p-3" />
+                    <Image src={product.images[0]} alt={getProductImageAlt(product, language)} fill sizes="130px" className="object-contain p-3" />
                   )}
                 </LocalizedLink>
                 <div>
-                  <p className="text-sm text-gold">{product.category}</p>
-                  <LocalizedLink href={`/products/${product.slug}`} className="mt-1 block font-serif text-2xl font-semibold text-white transition hover:text-soft-gold">
-                    {product.title}
+                  <p className="text-sm text-gold">{getProductCategory(product, language)}</p>
+                  <LocalizedLink href={`/products/${getProductRoute(product)}`} className="mt-1 block font-serif text-2xl font-semibold text-white transition hover:text-soft-gold">
+                    {getProductName(product, language)}
                   </LocalizedLink>
                   <p className="mt-2 text-sm text-muted">{t("product.id")}: {product.product_id}</p>
                   <button
@@ -80,7 +81,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
                     type="button"
                     className="grid h-9 w-9 place-items-center rounded-full text-muted transition hover:bg-white/10 hover:text-white"
                     onClick={() => updateQuantity(product.id, item.quantity - 1)}
-                    aria-label={`Decrease ${product.title} quantity`}
+                    aria-label={`Decrease ${getProductName(product, language)} quantity`}
                   >
                     <Minus size={16} />
                   </button>
@@ -89,7 +90,7 @@ export function CartPageClient({ products }: CartPageClientProps) {
                     type="button"
                     className="grid h-9 w-9 place-items-center rounded-full text-muted transition hover:bg-white/10 hover:text-white"
                     onClick={() => updateQuantity(product.id, item.quantity + 1)}
-                    aria-label={`Increase ${product.title} quantity`}
+                    aria-label={`Increase ${getProductName(product, language)} quantity`}
                   >
                     <Plus size={16} />
                   </button>

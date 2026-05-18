@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
+import { getProductCategory, getProductImageAlt, getProductName } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -12,7 +13,7 @@ type HeroProps = {
 };
 
 export function Hero({ products }: HeroProps) {
-  const { t } = useI18n();
+  const { language, t } = useI18n();
   const heroProduct = products[0];
   const floatingProducts = products.slice(1, 4);
   const whatsappHref = buildWhatsAppUrl(
@@ -73,7 +74,7 @@ export function Hero({ products }: HeroProps) {
               <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-white">
                 <Image
                   src={heroProduct.images[0]}
-                  alt={heroProduct.title}
+                  alt={getProductImageAlt(heroProduct, language)}
                   fill
                   priority
                   sizes="(min-width: 1024px) 520px, 90vw"
@@ -82,9 +83,9 @@ export function Hero({ products }: HeroProps) {
               </div>
               <div className="mt-5 flex items-end justify-between gap-4">
                 <div>
-                  <p className="text-sm text-gold">{heroProduct.category}</p>
+                  <p className="text-sm text-gold">{getProductCategory(heroProduct, language)}</p>
                   <h2 className="mt-1 font-serif text-2xl font-semibold text-white">
-                    {heroProduct.title}
+                    {getProductName(heroProduct, language)}
                   </h2>
                 </div>
                 <span className="rounded-full border border-gold/40 px-3 py-1 text-xs text-soft-gold">
@@ -110,11 +111,11 @@ export function Hero({ products }: HeroProps) {
               }}
             >
               <div className="relative aspect-[5/4] rounded-md bg-white">
-                <Image src={product.images[0]} alt={product.title} fill sizes="192px" className="object-contain p-3" />
+                <Image src={product.images[0]} alt={getProductImageAlt(product, language)} fill sizes="192px" className="object-contain p-3" />
               </div>
-              <p className="mt-3 text-xs text-muted">{product.category}</p>
+              <p className="mt-3 text-xs text-muted">{getProductCategory(product, language)}</p>
               <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-white">
-                {product.title}
+                {getProductName(product, language)}
               </h3>
             </motion.div>
           ))}

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getProducts } from "@/lib/products";
+import { getProductRoute, getProducts } from "@/lib/products";
 
 export const dynamic = "force-static";
 
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     })),
     ...getProducts().map((product) => ({
-      url: `${siteUrl}/products/${product.slug}`,
+      url: `${siteUrl}/products/${getProductRoute(product)}`,
       lastModified: new Date(product.imported_at),
     })),
   ];

@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 
 export const languages = ["en", "fr", "ar-MA"] as const;
 export type Language = (typeof languages)[number];
+export const defaultLanguage: Language = "ar-MA";
 
 type Messages = typeof en;
 type MessageKey = keyof Messages;
@@ -67,7 +68,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const searchLanguage = searchParams.get("lang");
-  const initialLanguage = isLanguage(searchLanguage) ? searchLanguage : "en";
+  const initialLanguage = isLanguage(searchLanguage) ? searchLanguage : defaultLanguage;
   const [language, setLanguageState] = useState<Language>(initialLanguage);
   const direction = language === "ar-MA" ? "rtl" : "ltr";
 
@@ -82,7 +83,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setLanguageState(nextLanguage);
 
     const params = new URLSearchParams(window.location.search);
-    if (nextLanguage === "en") {
+    if (nextLanguage === defaultLanguage) {
       params.delete("lang");
     } else {
       params.set("lang", nextLanguage);
@@ -141,7 +142,7 @@ export function useLocalizedHref() {
   const { language } = useI18n();
 
   return (href: string) => {
-    if (language === "en" || href.startsWith("http") || href.startsWith("#")) {
+    if (language === defaultLanguage || href.startsWith("http") || href.startsWith("#")) {
       return href;
     }
 

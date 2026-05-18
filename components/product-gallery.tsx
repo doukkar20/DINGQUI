@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 
 type ProductGalleryProps = {
   title: string;
+  imageAlt?: string;
   images: string[];
 };
 
-export function ProductGallery({ title, images }: ProductGalleryProps) {
+export function ProductGallery({ title, imageAlt, images }: ProductGalleryProps) {
   const [active, setActive] = useState(images[0] || "");
 
   return (
@@ -22,7 +23,7 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
         transition={{ duration: 0.5 }}
       >
         {active ? (
-          <Image src={active} alt={title} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-8" />
+          <Image src={active} alt={imageAlt || title} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-8" />
         ) : (
           <div className="flex h-full items-center justify-center bg-[#111] text-muted">
             Image unavailable
@@ -43,7 +44,7 @@ export function ProductGallery({ title, images }: ProductGalleryProps) {
               )}
               aria-label={`View image ${index + 1}`}
             >
-              <Image src={image} alt={`${title} ${index + 1}`} fill sizes="120px" className="object-contain p-2" />
+              <Image src={image} alt={`${imageAlt || title} ${index + 1}`} fill sizes="120px" className="object-contain p-2" />
             </button>
           ))}
         </div>

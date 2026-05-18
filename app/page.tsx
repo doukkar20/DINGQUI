@@ -1,5 +1,5 @@
 import { ArrowRight, BadgeCheck, Database, MessageCircle, ShieldCheck } from "lucide-react";
-import Image from "next/image";
+import { CategoryCard } from "@/components/category-card";
 import { Hero } from "@/components/hero";
 import { MotionSection } from "@/components/motion-section";
 import { ProductCard } from "@/components/product-card";
@@ -82,25 +82,13 @@ export default function Home() {
               <T k="home.categoriesCopy" />
             </p>
             <LocalizedLink href="/categories" className="btn-gold mt-8">
-              <T k="home.browseCategories" />
+            <T k="home.browseCategories" />
               <ArrowRight size={18} />
             </LocalizedLink>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {categories.map((category) => (
-              <LocalizedLink key={category.name} href={`/shop?category=${category.slug}`} className="glass-card group grid grid-cols-[96px_1fr] items-center gap-4 p-4">
-                <div className="relative aspect-square overflow-hidden rounded-md bg-white">
-                  {category.image && (
-                    <Image src={category.image} alt={category.name} fill sizes="96px" className="object-contain p-2" />
-                  )}
-                </div>
-                <div>
-                  <h3 className="font-serif text-2xl font-semibold text-white transition group-hover:text-soft-gold">
-                    {category.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted"><T k="home.productsCount" values={{ count: category.count }} /></p>
-                </div>
-              </LocalizedLink>
+              <CategoryCard key={category.key} category={category} compact />
             ))}
           </div>
         </div>

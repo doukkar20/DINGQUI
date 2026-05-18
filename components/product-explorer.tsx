@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
 import { useI18n } from "@/lib/i18n";
-import { categoryToSlug } from "@/lib/products";
+import { categoryToSlug, getLocalizedText, getProductCategory } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -16,18 +16,18 @@ type ProductExplorerProps = {
 };
 
 export function ProductExplorer({ products, initialCategory = "All" }: ProductExplorerProps) {
-  const { direction, t } = useI18n();
+  const { direction, language, t } = useI18n();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
 
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(products.map((product) => product.category))).sort()],
+    () => ["All", ...Array.from(new Set(products.map((product) => product.categoryKey))).sort()],
     [products],
   );
   const categoryParam = searchParams.get("category");
   const initialCategoryFromUrl =
     categories.find((item) => categoryToSlug(item) === categoryParam) ||
-    products.find((product) => categoryToSlug(product.category) === categoryParam)?.category ||
+    products.find((product) => categoryToSlug(product.categoryKey) === categoryParam)?.categoryKey ||
     initialCategory;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const category = selectedCategory || initialCategoryFromUrl;
@@ -36,19 +36,24 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
     const normalizedQuery = query.trim().toLowerCase();
 
     return products.filter((product) => {
-      const matchesCategory = category === "All" || product.category === category;
+      const matchesCategory = category === "All" || product.categoryKey === category;
       const searchable = [
-        product.title,
-        product.category,
+        ...Object.values(product.name || {}),
+        ...Object.values(product.category || {}),
         product.product_id,
-        ...product.specifications.rows.flat(),
+        product.sku || "",
+        ...(product.specificationTable?.rows || []).flat(),
+        ...(product.specifications || []).flatMap((spec) => [
+          getLocalizedText(spec.label, language),
+          spec.value,
+        ]),
       ]
         .join(" ")
         .toLowerCase();
 
       return matchesCategory && (!normalizedQuery || searchable.includes(normalizedQuery));
     });
-  }, [category, products, query]);
+  }, [category, language, products, query]);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -72,21 +77,24 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
         </div>
 
         <div className="mt-5 flex gap-2 overflow-x-auto pb-2">
-          {categories.map((item) => (
-            <button
-              key={item}
-              type="button"
-              onClick={() => setSelectedCategory(item)}
-              className={cn(
-                "shrink-0 rounded-full border px-4 py-2 text-sm transition",
-                category === item
-                  ? "border-gold bg-gold text-black"
-                  : "border-white/10 bg-white/[0.03] text-muted hover:border-gold/60 hover:text-white",
-              )}
-            >
-              {item === "All" ? t("search.all") : item}
-            </button>
-          ))}
+          {categories.map((item) => {
+            const categoryProduct = products.find((product) => product.categoryKey === item);
+            return (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setSelectedCategory(item)}
+                className={cn(
+                  "shrink-0 rounded-full border px-4 py-2 text-sm transition",
+                  category === item
+                    ? "border-gold bg-gold text-black"
+                    : "border-white/10 bg-white/[0.03] text-muted hover:border-gold/60 hover:text-white",
+                )}
+              >
+                {item === "All" ? t("search.all") : categoryProduct ? getProductCategory(categoryProduct, language) : item}
+              </button>
+            );
+          })}
         </div>
       </div>
 

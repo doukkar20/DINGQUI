@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "playwright:install": "playwright install chromium",
-    "import:products": "tsx scripts/import-dingqi-products.ts"
+    "import:products": "tsx scripts/import-dingqi-products.ts",
+    "localize:products": "node scripts/localize-products.mjs"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
