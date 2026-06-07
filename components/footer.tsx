@@ -23,7 +23,7 @@ const trust = [
 
 export function Footer() {
   const { t } = useI18n();
-  const whatsappHref = buildWhatsAppUrl("السلام عليكم، بغيت نستفسر على منتجات DINGQI GROS.");
+  const whatsappHref = buildWhatsAppUrl("السلام عليكم، أود الاستفسار عن منتجات DINGQI GROS.");
 
   return (
     <footer className="premium-shell border-t border-white/10">

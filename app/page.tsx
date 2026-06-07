@@ -3,6 +3,7 @@ import { CategoryCard } from "@/components/category-card";
 import { Hero } from "@/components/hero";
 import { MotionSection } from "@/components/motion-section";
 import { ProductCard } from "@/components/product-card";
+import { TopWinningProducts } from "@/components/top-winning-products";
 import { LocalizedLink, T } from "@/lib/i18n";
 import { getCategories, getFeaturedProducts, getProducts } from "@/lib/products";
 
@@ -37,6 +38,8 @@ export default function Home() {
   return (
     <>
       <Hero products={featured} />
+
+      <TopWinningProducts />
 
       <MotionSection className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:grid-cols-3 sm:px-6 lg:px-8">
         {[

@@ -26,7 +26,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const whatsappHref = buildWhatsAppUrl("السلام عليكم، بغيت نستفسر على منتجات DINGQI GROS.");
+  const whatsappHref = buildWhatsAppUrl("السلام عليكم، أود الاستفسار عن منتجات DINGQI GROS.");
 
   useEffect(() => {
     const updateScrolled = () => setScrolled(window.scrollY > 12);

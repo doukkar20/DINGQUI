@@ -85,7 +85,7 @@ export function CustomCursor() {
         }}
         transition={{ type: "spring", stiffness: 260, damping: 22 }}
       >
-        {mode === "product" && <span>شوف</span>}
+        {mode === "product" && <span>عرض</span>}
       </motion.div>
       <motion.div
         aria-hidden="true"

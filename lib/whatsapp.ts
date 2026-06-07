@@ -20,7 +20,7 @@ export function createReservationMessage({
   cartLines = [],
 }: ReservationMessageOptions): string {
   const lines = [
-    "السلام عليكم، بغيت ندير طلب من موقع DINGQI GROS.",
+    "السلام عليكم، أود تقديم طلب من موقع DINGQI GROS.",
     "",
     "الاسم الكامل:",
     details.fullName,

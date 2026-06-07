@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const whatsappHref = buildWhatsAppUrl(
-    "السلام عليكم، بغيت نستفسر على منتجات DINGQI GROS.",
+    "السلام عليكم، أود الاستفسار عن منتجات DINGQI GROS.",
   );
 
   return (

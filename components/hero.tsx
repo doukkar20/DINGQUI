@@ -29,7 +29,7 @@ export function Hero({ products }: HeroProps) {
   const smoothY = useSpring(mouseY, { stiffness: 120, damping: 24 });
   const rotateX = useTransform(smoothY, [-0.5, 0.5], [7, -7]);
   const rotateY = useTransform(smoothX, [-0.5, 0.5], [-9, 9]);
-  const whatsappHref = buildWhatsAppUrl("السلام عليكم، بغيت نستفسر على منتجات DINGQI GROS.");
+  const whatsappHref = buildWhatsAppUrl("السلام عليكم، أود الاستفسار عن منتجات DINGQI GROS.");
 
   function handleMouseMove(event: MouseEvent<HTMLElement>) {
     const bounds = event.currentTarget.getBoundingClientRect();

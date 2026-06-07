@@ -33,7 +33,7 @@ const dictionaries: Record<Language, Messages> = {
 const languageLabels: Record<Language, string> = {
   en: "English",
   fr: "Français",
-  "ar-MA": "الدارجة",
+  "ar-MA": "العربية",
 };
 
 type I18nContextValue = {
@@ -46,8 +46,8 @@ type I18nContextValue = {
 const I18nContext = createContext<I18nContextValue | null>(null);
 const darijaCountLabels: Partial<Record<MessageKey, [string, string]>> = {
   "home.productsCount": ["منتج", "منتجات"],
-  "search.productsShown": ["منتج باين", "منتج باين"],
-  "product.specRows": ["سطر ديال المواصفات", "أسطر ديال المواصفات"],
+  "search.productsShown": ["منتج معروض", "منتجات معروضة"],
+  "product.specRows": ["صف من المواصفات", "صفوف من المواصفات"],
 };
 
 function isLanguage(value: string | null): value is Language {
