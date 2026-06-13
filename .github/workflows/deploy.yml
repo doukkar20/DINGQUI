@@ -34,7 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "true"
-      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      NEXT_PUBLIC_BASE_PATH: ""
+      NEXT_PUBLIC_SITE_URL: https://dingqigros.com
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
     steps:
