@@ -45,9 +45,9 @@ export function ReservationForm({
   const effectiveDetails = useMemo(
     () => ({
       ...details,
-      productName: details.productName || defaultProductName || t("reservation.cartProduct"),
+      productName: details.productName || defaultProductName || (hasCart ? t("reservation.cartProduct") : ""),
     }),
-    [defaultProductName, details, t],
+    [defaultProductName, details, hasCart, t],
   );
 
   function updateField(field: keyof ReservationDetails, value: string) {
@@ -60,6 +60,7 @@ export function ReservationForm({
       details: effectiveDetails,
       product,
       cartLines,
+      language,
     });
     window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
   }
@@ -72,7 +73,7 @@ export function ReservationForm({
       </h2>
       <p className="mt-3 text-sm leading-7 text-muted">{t("reservation.copy")}</p>
 
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
+      <div className="mt-7 grid gap-5">
         <label className="grid gap-2 text-sm text-muted">
           {t("form.fullName")}
           <input
@@ -109,60 +110,9 @@ export function ReservationForm({
             placeholder={t("form.cityPlaceholder")}
           />
         </label>
-
-        <label className="grid gap-2 text-sm text-muted">
-          {t("form.address")}
-          <input
-            required
-            value={details.address}
-            onChange={(event) => updateField("address", event.target.value)}
-            className="input-luxury"
-            dir={direction}
-            placeholder={t("form.addressPlaceholder")}
-          />
-        </label>
-
-        <label className="grid gap-2 text-sm text-muted">
-          {t("form.productName")}
-          <input
-            required
-            value={effectiveDetails.productName}
-            onChange={(event) => updateField("productName", event.target.value)}
-            className="input-luxury"
-            dir={direction}
-            placeholder={t("form.productNamePlaceholder")}
-            readOnly={Boolean(product || hasCart)}
-          />
-        </label>
-
-        <label className="grid gap-2 text-sm text-muted">
-          {t("form.quantity")}
-          <input
-            required
-            min="1"
-            value={details.quantity}
-            onChange={(event) => updateField("quantity", event.target.value)}
-            className="input-luxury"
-            dir="ltr"
-            inputMode="numeric"
-            type="number"
-            placeholder="1"
-          />
-        </label>
-
-        <label className="grid gap-2 text-sm text-muted sm:col-span-2">
-          {t("form.notes")}
-          <textarea
-            value={details.notes}
-            onChange={(event) => updateField("notes", event.target.value)}
-            className="input-luxury min-h-32 resize-y py-4"
-            dir={direction}
-            placeholder={t("form.notesPlaceholder")}
-          />
-        </label>
       </div>
 
-      <button type="submit" className="btn-primary magnetic mt-7 w-full sm:w-auto" data-cursor="cta">
+      <button type="submit" className="btn-whatsapp magnetic mt-7 w-full sm:w-auto" data-cursor="cta">
         <Send size={18} />
         {t("actions.sendWhatsappOrder")}
       </button>

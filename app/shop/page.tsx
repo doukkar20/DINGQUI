@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { ProductExplorer } from "@/components/product-explorer";
 import { T } from "@/lib/i18n";
 import { getProducts } from "@/lib/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Shop",
-  description: "Search and filter the DINGQI GROS DingQi product collection.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Shop DingQi Professional Tools",
+  description: "Search and filter DingQi tools from DINGQI GROS, then request prices quickly through WhatsApp in Morocco.",
+  path: "/shop",
+});
 
 export default function ShopPage() {
   const products = getProducts();

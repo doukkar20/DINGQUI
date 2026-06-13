@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductPageContent } from "@/components/product-page-content";
 import { getProductBySlug, getProductName, getProductRoute, getProductSeo, getProducts, getRelatedProducts } from "@/lib/products";
+import { publicAssetPath } from "@/lib/assets";
+import { siteName, siteUrl } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -26,10 +28,25 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: getProductSeo(product).title,
     description: getProductSeo(product).description,
+    alternates: {
+      canonical: `/products/${getProductRoute(product)}`,
+    },
     openGraph: {
       title: getProductSeo(product).title,
       description: getProductSeo(product).description,
-      images: product.images.slice(0, 1),
+      type: "website",
+      url: `/products/${getProductRoute(product)}`,
+      siteName,
+      images: product.images.slice(0, 1).map((image) => ({
+        url: publicAssetPath(image),
+        alt: getProductName(product),
+      })),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: getProductSeo(product).title,
+      description: getProductSeo(product).description,
+      images: product.images.slice(0, 1).map((image) => publicAssetPath(image)),
     },
   };
 }
@@ -49,10 +66,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
     "@type": "Product",
     name: getProductName(product),
     sku: product.sku || product.product_id,
+    brand: {
+      "@type": "Brand",
+      name: "DingQi",
+    },
     category: product.categoryKey,
-    image: product.images,
+    image: product.images.map((image) => `${siteUrl}${publicAssetPath(image)}`),
     description: seo.description,
-    url: `/products/${getProductRoute(product)}`,
+    url: `${siteUrl}/products/${getProductRoute(product)}`,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "MAD",
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/products/${getProductRoute(product)}`,
+    },
   };
 
   return (

@@ -49,7 +49,7 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <AddToCartButton product={product} quantity={quantity} />
-        <a href="#reservation-form" className="btn-ghost magnetic justify-center" data-cursor="cta">
+        <a href="#reservation-form" className="btn-whatsapp magnetic justify-center" data-cursor="cta">
           <MessageCircle size={18} />
           {t("product.whatsappOrder")}
         </a>

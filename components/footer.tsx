@@ -4,6 +4,7 @@ import { ArrowUpRight, BadgeCheck, MessageCircle, ShieldCheck, Truck } from "luc
 import Image from "next/image";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
 import { publicAssetPath } from "@/lib/assets";
+import { contactEmail, contactEmailHref } from "@/lib/contact";
 import { buildWhatsAppUrl, displayPhoneNumber } from "@/lib/whatsapp";
 
 const footerLinks = [
@@ -80,10 +81,13 @@ export function Footer() {
             <ArrowUpRight size={16} />
           </a>
           <p className="mt-4 text-sm font-black text-orange">{displayPhoneNumber}</p>
+          <a href={contactEmailHref} className="mt-2 block text-sm font-semibold text-white/70 transition hover:text-orange">
+            {contactEmail}
+          </a>
         </div>
       </div>
       <div className="relative z-10 border-t border-white/10 px-4 py-5 text-center text-xs text-white/50">
-        Copyright {new Date().getFullYear()} DINGQI GROS. {t("footer.rights")}
+        {t("footer.copyright", { year: new Date().getFullYear(), rights: t("footer.rights") })}
       </div>
     </footer>
   );

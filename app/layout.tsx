@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { I18nProvider } from "@/lib/i18n";
 import { publicAssetPath } from "@/lib/assets";
+import { languageAlternates, organizationSchema, siteDescription, siteName, siteTitle } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,11 +29,10 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dingqi-gros.vercel.app"),
   title: {
-    default: "DINGQI GROS | DingQi Tools Morocco",
+    default: siteTitle,
     template: "%s | DINGQI GROS",
   },
-  description:
-    "DINGQI GROS is a modern orange and gray DingQi tools storefront in Morocco with WhatsApp ordering and reservation requests.",
+  description: siteDescription,
   keywords: [
     "DINGQI GROS",
     "professional tools",
@@ -46,12 +46,35 @@ export const metadata: Metadata = {
     shortcut: publicAssetPath("/logo.jpg"),
     apple: publicAssetPath("/logo.jpg"),
   },
+  verification: {
+    google: "Yyn-XRC5dUVpBSOxGo3Kj_gOwasE7-_A9F4AhN8HOhA",
+  },
+  alternates: {
+    canonical: "/",
+    languages: languageAlternates,
+  },
   openGraph: {
-    title: "DINGQI GROS",
-    description: "DingQi tools, reservations, and WhatsApp ordering in Morocco",
+    title: siteName,
+    description: siteDescription,
     type: "website",
     url: "/",
-    siteName: "DINGQI GROS",
+    siteName,
+    images: [
+      {
+        url: publicAssetPath("/logo.jpg"),
+        width: 800,
+        height: 800,
+        alt: siteName,
+      },
+    ],
+    locale: "ar_MA",
+    alternateLocale: ["en_US", "fr_FR"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+    images: [publicAssetPath("/logo.jpg")],
   },
 };
 
@@ -63,6 +86,10 @@ export default function RootLayout({
   return (
     <html lang="ar-MA" dir="rtl" className={`${geistSans.variable} ${cormorant.variable} ${cairo.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <Suspense>
           <I18nProvider>
             <CartProvider>

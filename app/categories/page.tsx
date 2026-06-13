@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { CategoryCard } from "@/components/category-card";
 import { T } from "@/lib/i18n";
 import { getCategories, getProductsByCategory } from "@/lib/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Categories",
-  description: "Browse DINGQI GROS product categories imported from DingQi.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "DingQi Tool Categories",
+  description: "Browse DINGQI GROS tool categories for professional workshops, trade counters, and job sites in Morocco.",
+  path: "/categories",
+});
 
 export default function CategoriesPage() {
   const categories = getCategories();

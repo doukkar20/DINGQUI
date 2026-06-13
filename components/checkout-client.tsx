@@ -6,7 +6,7 @@ import { ReservationForm } from "@/components/reservation-form";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
 import { getProductName } from "@/lib/products";
 import type { Product } from "@/lib/types";
-import { createCartLines } from "@/lib/whatsapp";
+import { createLocalizedCartLines } from "@/lib/whatsapp";
 
 type CheckoutClientProps = {
   products: Product[];
@@ -23,7 +23,7 @@ export function CheckoutClient({ products }: CheckoutClientProps) {
     .map((item) => ({ item, product: productMap.get(item.productId) }))
     .filter((entry): entry is { item: typeof items[number]; product: Product } => Boolean(entry.product));
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
-  const cartLines = createCartLines(items, products);
+  const cartLines = createLocalizedCartLines(items, products, language);
 
   if (!items.length) {
     return (

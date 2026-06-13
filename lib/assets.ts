@@ -1,5 +1,4 @@
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_PAGES === "true" ? "/DINGQUI" : "");
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function publicAssetPath(path: string): string {
   if (!path || path.startsWith("http") || path.startsWith("data:")) {

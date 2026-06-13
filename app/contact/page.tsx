@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { Boxes, Clock, MapPin, MessageCircle } from "lucide-react";
+import { Boxes, Clock, Mail, MapPin, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { contactEmail, contactEmailHref } from "@/lib/contact";
 import { T } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl, displayPhoneNumber } from "@/lib/whatsapp";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact DINGQI GROS for DingQi tools orders and reservations in Morocco.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contact DINGQI GROS",
+  description: "Contact DINGQI GROS by WhatsApp or email for DingQi tools, price requests, delivery, and professional orders in Morocco.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const whatsappHref = buildWhatsAppUrl(
@@ -45,6 +48,15 @@ export default function ContactPage() {
               <span className="block text-sm text-muted"><T k="checkout.finalPricing" /></span>
             </span>
           </div>
+          <a href={contactEmailHref} className="glass-card flex items-center gap-4 p-5">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-orange/10 text-orange">
+              <Mail size={21} />
+            </span>
+            <span>
+              <span className="block font-semibold text-foreground"><T k="contact.email" /></span>
+              <span className="block text-sm text-muted">{contactEmail}</span>
+            </span>
+          </a>
           <div className="glass-card flex items-center gap-4 p-5">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-orange/10 text-orange">
               <Boxes size={21} />

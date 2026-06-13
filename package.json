@@ -9,26 +9,31 @@
     "lint": "eslint",
     "playwright:install": "playwright install chromium",
     "import:products": "tsx scripts/import-dingqi-products.ts",
-    "localize:products": "node scripts/localize-products.mjs"
+    "localize:products": "node scripts/localize-products.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
-    "framer-motion": "^12.38.0",
-    "lucide-react": "^1.16.0",
-    "next": "16.2.6",
-    "playwright": "^1.60.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.18.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.3.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.6",
-    "tailwindcss": "^4",
+    "eslint-config-next": "^16.2.9",
+    "playwright": "^1.60.0",
+    "sharp": "^0.35.1",
+    "tailwindcss": "^4.3.1",
     "tsx": "^4.22.0",
     "typescript": "^5"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }

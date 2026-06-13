@@ -1,47 +1,35 @@
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "Privacy policy for DINGQI GROS.",
-};
+  description: "Privacy policy for DINGQI GROS customer requests, WhatsApp orders, catalog data, and contact information.",
+  path: "/privacy-policy",
+});
 
 const sections = [
-  {
-    title: "Information we collect",
-    text: "DINGQI GROS collects the information customers provide through reservation forms, cart checkout, and WhatsApp messages, including name, phone number, city, address, order notes, and selected products.",
-  },
-  {
-    title: "How information is used",
-    text: "Customer information is used to prepare quotes, confirm product availability, arrange delivery, answer support questions, and keep a record of order requests.",
-  },
-  {
-    title: "Product and analytics data",
-    text: "The product catalog is stored locally in data/products.json and contains DingQi product names, IDs, categories, images, specifications, and source URLs. The website can be connected to analytics after deployment if the store owner chooses to do so.",
-  },
-  {
-    title: "Sharing and retention",
-    text: "Customer details are not sold. Information may be shared only with service providers needed to fulfill orders, such as delivery partners or communication tools. Records are kept only as long as needed for business, legal, and customer service purposes.",
-  },
-  {
-    title: "Customer rights",
-    text: "Customers can request correction or deletion of their submitted information by contacting DINGQI GROS through the contact page or WhatsApp.",
-  },
-];
+  ["privacy.info.title", "privacy.info.text"],
+  ["privacy.use.title", "privacy.use.text"],
+  ["privacy.catalog.title", "privacy.catalog.text"],
+  ["privacy.sharing.title", "privacy.sharing.text"],
+  ["privacy.rights.title", "privacy.rights.text"],
+] as const;
 
 export default function PrivacyPolicyPage() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-      <p className="text-sm text-orange">Legal</p>
+      <p className="text-sm text-orange"><T k="legal.eyebrow" /></p>
       <h1 className="mt-2 font-serif text-6xl font-semibold leading-none text-foreground">
-        Privacy Policy
+        <T k="privacy.title" />
       </h1>
-      <p className="mt-5 text-muted">Last updated: May 16, 2026</p>
+      <p className="mt-5 text-muted"><T k="legal.updated" /></p>
 
       <div className="mt-10 grid gap-5">
-        {sections.map((section) => (
-          <div key={section.title} className="glass-panel p-6">
-            <h2 className="font-serif text-3xl font-semibold text-foreground">{section.title}</h2>
-            <p className="mt-3 leading-8 text-muted">{section.text}</p>
+        {sections.map(([title, text]) => (
+          <div key={title} className="glass-panel p-6">
+            <h2 className="font-serif text-3xl font-semibold text-foreground"><T k={title} /></h2>
+            <p className="mt-3 leading-8 text-muted"><T k={text} /></p>
           </div>
         ))}
       </div>

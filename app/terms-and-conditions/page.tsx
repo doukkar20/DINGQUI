@@ -1,47 +1,35 @@
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms and Conditions",
-  description: "Terms and conditions for DINGQI GROS.",
-};
+  description: "Terms and conditions for DINGQI GROS DingQi tool quote requests, availability, delivery, returns, and support.",
+  path: "/terms-and-conditions",
+});
 
 const sections = [
-  {
-    title: "Quote-based ordering",
-    text: "DINGQI GROS displays products for reservation and quote requests. Prices are intentionally empty unless a store administrator edits them manually. A submitted cart or checkout message is a request, not an automatic purchase contract.",
-  },
-  {
-    title: "Product information",
-    text: "Product names, categories, images, descriptions, product IDs, and specifications are imported from the listed DingQi source URLs. DINGQI GROS aims to keep this information accurate but may update or correct catalog data when source information changes.",
-  },
-  {
-    title: "Availability and confirmation",
-    text: "Availability, delivery timing, final pricing, and order acceptance are confirmed manually after the customer submits a quote request through WhatsApp or the checkout form.",
-  },
-  {
-    title: "Customer responsibilities",
-    text: "Customers are responsible for providing accurate contact details, delivery information, quantities, and model requirements. Incorrect information may delay quote preparation or delivery.",
-  },
-  {
-    title: "Returns and support",
-    text: "Return, exchange, warranty, and support terms should be confirmed during the quote process because professional tools may be subject to supplier conditions, usage requirements, and product-specific policies.",
-  },
-];
+  ["terms.quote.title", "terms.quote.text"],
+  ["terms.product.title", "terms.product.text"],
+  ["terms.confirm.title", "terms.confirm.text"],
+  ["terms.customer.title", "terms.customer.text"],
+  ["terms.support.title", "terms.support.text"],
+] as const;
 
 export default function TermsAndConditionsPage() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-      <p className="text-sm text-orange">Legal</p>
+      <p className="text-sm text-orange"><T k="legal.eyebrow" /></p>
       <h1 className="mt-2 font-serif text-6xl font-semibold leading-none text-foreground">
-        Terms and Conditions
+        <T k="terms.title" />
       </h1>
-      <p className="mt-5 text-muted">Last updated: May 16, 2026</p>
+      <p className="mt-5 text-muted"><T k="legal.updated" /></p>
 
       <div className="mt-10 grid gap-5">
-        {sections.map((section) => (
-          <div key={section.title} className="glass-panel p-6">
-            <h2 className="font-serif text-3xl font-semibold text-foreground">{section.title}</h2>
-            <p className="mt-3 leading-8 text-muted">{section.text}</p>
+        {sections.map(([title, text]) => (
+          <div key={title} className="glass-panel p-6">
+            <h2 className="font-serif text-3xl font-semibold text-foreground"><T k={title} /></h2>
+            <p className="mt-3 leading-8 text-muted"><T k={text} /></p>
           </div>
         ))}
       </div>
