@@ -2,8 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, SlidersHorizontal } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/components/product-card";
 import { useI18n } from "@/lib/i18n";
 import { categoryToSlug, getLocalizedText, getProductCategory } from "@/lib/products";
@@ -17,20 +16,25 @@ type ProductExplorerProps = {
 
 export function ProductExplorer({ products, initialCategory = "All" }: ProductExplorerProps) {
   const { direction, language, t } = useI18n();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(products.map((product) => product.categoryKey))).sort()],
     [products],
   );
-  const categoryParam = searchParams.get("category");
-  const initialCategoryFromUrl =
-    categories.find((item) => categoryToSlug(item) === categoryParam) ||
-    products.find((product) => categoryToSlug(product.categoryKey) === categoryParam)?.categoryKey ||
-    initialCategory;
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const category = selectedCategory || initialCategoryFromUrl;
+  const [category, setCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    const categoryParam = new URLSearchParams(window.location.search).get("category");
+    const categoryFromUrl =
+      categories.find((item) => categoryToSlug(item) === categoryParam) ||
+      products.find((product) => categoryToSlug(product.categoryKey) === categoryParam)?.categoryKey;
+
+    if (categoryFromUrl) {
+      const timer = window.setTimeout(() => setCategory(categoryFromUrl), 0);
+      return () => window.clearTimeout(timer);
+    }
+  }, [categories, products]);
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -83,7 +87,7 @@ export function ProductExplorer({ products, initialCategory = "All" }: ProductEx
               <button
                 key={item}
                 type="button"
-                onClick={() => setSelectedCategory(item)}
+                  onClick={() => setCategory(item)}
                 className={cn(
                   "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
                   category === item

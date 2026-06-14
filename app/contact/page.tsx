@@ -7,8 +7,8 @@ import { pageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl, displayPhoneNumber } from "@/lib/whatsapp";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact DINGQI GROS",
-  description: "Contact DINGQI GROS by WhatsApp or email for DingQi tools, price requests, delivery, and professional orders in Morocco.",
+  title: "اتصل بـ DINGQI GROS | أدوات DINGQI المغرب",
+  description: "تواصل مع DINGQI GROS لطلب أسعار أدوات DINGQI، طلبيات الجملة والتقسيط، والتوصيل المجاني لجميع المدن المغربية.",
   path: "/contact",
 });
 

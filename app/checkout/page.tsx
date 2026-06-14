@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Send WhatsApp Order",
   description: "Send your DINGQI GROS order request with name, phone number, and city through WhatsApp.",
   path: "/checkout",
+  index: false,
 });
 
 export default function CheckoutPage() {

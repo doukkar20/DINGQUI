@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
 import {
   createContext,
   type AnchorHTMLAttributes,
@@ -66,12 +65,21 @@ function interpolate(message: string, values?: Record<string, string | number>):
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const searchLanguage = searchParams.get("lang");
-  const initialLanguage = isLanguage(searchLanguage) ? searchLanguage : defaultLanguage;
-  const [language, setLanguageState] = useState<Language>(initialLanguage);
+  const [language, setLanguageState] = useState<Language>(defaultLanguage);
   const direction = language === "ar-MA" ? "rtl" : "ltr";
+
+  useEffect(() => {
+    const searchLanguage = new URLSearchParams(window.location.search).get("lang");
+    const storedLanguage = window.localStorage.getItem("atlas-language");
+    const preferredLanguage = isLanguage(searchLanguage)
+      ? searchLanguage
+      : isLanguage(storedLanguage)
+        ? storedLanguage
+        : defaultLanguage;
+
+    const timer = window.setTimeout(() => setLanguageState(preferredLanguage), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -91,8 +99,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
 
     const query = params.toString();
-    window.history.replaceState(null, "", `${pathname}${query ? `?${query}` : ""}`);
-  }, [pathname]);
+    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}`);
+  }, []);
 
   const value = useMemo<I18nContextValue>(
     () => ({

@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
 import { publicAssetPath } from "@/lib/assets";
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dingqi-gros.vercel.app";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dingqigros.com";
 export const siteName = "DINGQI GROS";
-export const siteTitle = "DINGQI GROS | DingQi Tools Morocco";
+export const siteTitle = "DINGQI GROS Maroc | أدوات DINGQI الأصلية";
 export const siteDescription =
-  "DINGQI GROS is a Moroccan DingQi tools catalog for professional buyers, with fast WhatsApp ordering, delivery support, and quote requests.";
-
-export const languageAlternates = {
-  "ar-MA": "/",
-  en: "/?lang=en",
-  fr: "/?lang=fr",
-};
+  "متجر DINGQI بالمغرب للبيع بالجملة والتقسيط: أدوات ومعدات صناعية أصلية، عروض أسعار سريعة، وتوصيل مجاني لجميع المدن المغربية.";
 
 type PageSeoOptions = {
   title: string;
   description: string;
   path?: string;
+  index?: boolean;
 };
 
-export function pageMetadata({ title, description, path = "/" }: PageSeoOptions): Metadata {
+export function pageMetadata({ title, description, path = "/", index = true }: PageSeoOptions): Metadata {
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: path,
-      languages: languageAlternates,
     },
+    robots: index
+      ? { index: true, follow: true }
+      : { index: false, follow: true, googleBot: { index: false, follow: true } },
     openGraph: {
       title,
       description,
@@ -36,8 +33,8 @@ export function pageMetadata({ title, description, path = "/" }: PageSeoOptions)
       images: [
         {
           url: publicAssetPath("/logo.jpg"),
-          width: 800,
-          height: 800,
+          width: 1280,
+          height: 720,
           alt: siteName,
         },
       ],
@@ -55,16 +52,36 @@ export function pageMetadata({ title, description, path = "/" }: PageSeoOptions)
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
   name: siteName,
   url: siteUrl,
+  logo: `${siteUrl}${publicAssetPath("/logo.jpg")}`,
   image: `${siteUrl}${publicAssetPath("/logo.jpg")}`,
+  description: siteDescription,
   email: "dingqigros@gmail.com",
   telephone: "+212626018950",
-  areaServed: "Morocco",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "MA",
+  areaServed: {
+    "@type": "Country",
+    name: "Morocco",
   },
-  sameAs: ["https://wa.me/212626018950"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+212626018950",
+    contactType: "sales",
+    areaServed: "MA",
+    availableLanguage: ["Arabic", "French", "English"],
+  },
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: siteName,
+  description: siteDescription,
+  publisher: {
+    "@id": `${siteUrl}/#organization`,
+  },
 };

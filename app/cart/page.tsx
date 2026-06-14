@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Quote Cart",
   description: "Review selected DingQi tools from DINGQI GROS before sending a WhatsApp quote request.",
   path: "/cart",
+  index: false,
 });
 
 export default function CartPage() {

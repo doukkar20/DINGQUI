@@ -5,8 +5,8 @@ import { getProducts } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Shop DingQi Professional Tools",
-  description: "Search and filter DingQi tools from DINGQI GROS, then request prices quickly through WhatsApp in Morocco.",
+  title: "متجر أدوات DINGQI بالمغرب | DINGQI GROS",
+  description: "تصفح أدوات ومعدات DINGQI الأصلية بالمغرب، قارن المواصفات، واطلب عرض سعر للجملة أو التقسيط مع توصيل مجاني لجميع المدن.",
   path: "/shop",
 });
 

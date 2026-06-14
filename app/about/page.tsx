@@ -5,8 +5,8 @@ import { T } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About DINGQI GROS",
-  description: "Learn how DINGQI GROS helps professionals in Morocco request DingQi tool prices, delivery, and support through WhatsApp.",
+  title: "عن DINGQI GROS | أدوات DINGQI بالمغرب",
+  description: "تعرف على DINGQI GROS، متجر أدوات DINGQI الأصلية بالمغرب لخدمة المهنيين والمحلات مع عروض أسعار ودعم وتوصيل لجميع المدن.",
   path: "/about",
 });
 

@@ -5,8 +5,8 @@ import { getCategories, getProductsByCategory } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "DingQi Tool Categories",
-  description: "Browse DINGQI GROS tool categories for professional workshops, trade counters, and job sites in Morocco.",
+  title: "فئات أدوات ومعدات DINGQI | DINGQI GROS المغرب",
+  description: "اكتشف فئات أدوات DINGQI المهنية للورش والمحلات ومواقع العمل بالمغرب، من العدد اليدوية إلى المعدات الكهربائية والصناعية.",
   path: "/categories",
 });
 

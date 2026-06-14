@@ -26,11 +26,12 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   }
 
   return {
-    title: getProductSeo(product).title,
+    title: { absolute: getProductSeo(product).title },
     description: getProductSeo(product).description,
     alternates: {
       canonical: `/products/${getProductRoute(product)}`,
     },
+    robots: { index: true, follow: true },
     openGraph: {
       title: getProductSeo(product).title,
       description: getProductSeo(product).description,
@@ -61,9 +62,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const related = getRelatedProducts(product);
   const seo = getProductSeo(product);
+  const productUrl = `${siteUrl}/products/${getProductRoute(product)}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `${productUrl}#product`,
     name: getProductName(product),
     sku: product.sku || product.product_id,
     brand: {
@@ -73,13 +76,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
     category: product.categoryKey,
     image: product.images.map((image) => `${siteUrl}${publicAssetPath(image)}`),
     description: seo.description,
-    url: `${siteUrl}/products/${getProductRoute(product)}`,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "MAD",
-      availability: "https://schema.org/InStock",
-      url: `${siteUrl}/products/${getProductRoute(product)}`,
-    },
+    url: productUrl,
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "DINGQI GROS",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "متجر الأدوات",
+        item: `${siteUrl}/shop`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: getProductName(product),
+        item: productUrl,
+      },
+    ],
   };
 
   return (
@@ -87,6 +108,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <ProductPageContent product={product} related={related} />
     </>

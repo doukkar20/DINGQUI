@@ -18,8 +18,8 @@ import { getCategories } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "DINGQI GROS | DingQi Tools Morocco",
-  description: "Order DingQi professional tools in Morocco from DINGQI GROS with fast WhatsApp quotes, delivery support, and trusted product sourcing.",
+  title: "DINGQI GROS Maroc | أدوات DINGQI الأصلية",
+  description: "متجر DINGQI بالمغرب للبيع بالجملة والتقسيط: أدوات ومعدات صناعية أصلية، عروض أسعار سريعة، وتوصيل مجاني لجميع المدن المغربية.",
   path: "/",
 });
 

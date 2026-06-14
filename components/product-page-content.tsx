@@ -25,7 +25,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
         <ProductGallery title={productName} imageAlt={getProductImageAlt(product, language)} images={product.images} />
 
         <div>
-          <div className="mb-5 flex flex-wrap gap-2 text-sm text-muted">
+          <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap gap-2 text-sm text-muted">
             <LocalizedLink href="/shop" className="transition hover:text-orange">
               <T k="nav.shop" />
             </LocalizedLink>
@@ -33,7 +33,7 @@ export function ProductPageContent({ product, related }: ProductPageContentProps
             <LocalizedLink href={`/shop?category=${categoryToSlug(product.categoryKey)}`} className="transition hover:text-orange">
               {productCategory}
             </LocalizedLink>
-          </div>
+          </nav>
 
           <p className="text-sm font-bold text-orange"><T k="product.id" />: {product.product_id}</p>
           <h1 className="mt-3 text-5xl font-black leading-tight text-foreground lg:text-6xl">
