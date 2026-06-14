@@ -347,6 +347,21 @@ textarea {
   pointer-events: none;
 }
 
+.premium-shell::after {
+  content: "";
+  position: absolute;
+  width: min(34rem, 72vw);
+  aspect-ratio: 1;
+  right: -12rem;
+  bottom: -18rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.2), transparent 68%);
+  filter: blur(10px);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: ambient-orbit 11s ease-in-out infinite alternate;
+}
+
 .metal-border {
   position: relative;
 }
@@ -432,6 +447,17 @@ textarea {
   }
   50% {
     box-shadow: 0 0 32px rgba(255, 122, 26, 0.32);
+  }
+}
+
+@keyframes ambient-orbit {
+  from {
+    transform: translate3d(-2rem, 1rem, 0) scale(0.9);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate3d(-8rem, -5rem, 0) scale(1.15);
+    opacity: 0.8;
   }
 }
 

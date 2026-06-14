@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CategoryCard } from "@/components/category-card";
+import { StaggerGrid } from "@/components/stagger-grid";
 import { T } from "@/lib/i18n";
 import { getCategories, getProductsByCategory } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
@@ -27,14 +28,14 @@ export default function CategoriesPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8">
+      <StaggerGrid className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8" itemClassName="h-full">
         {categories.map((category) => {
           const products = getProductsByCategory(category.key);
           return (
             <CategoryCard key={category.key} category={category} products={products} />
           );
         })}
-      </section>
+      </StaggerGrid>
     </>
   );
 }

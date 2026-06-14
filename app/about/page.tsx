@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BadgeCheck, Gem, Shield, Wrench } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { StaggerGrid } from "@/components/stagger-grid";
 import { T } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
@@ -48,23 +49,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <MotionSection className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        {values.map((value) => {
-          const Icon = value.icon;
-          return (
-            <div key={value.title} className="glass-panel p-6">
-              <div className="grid h-12 w-12 place-items-center rounded-full border border-orange/40 bg-orange/10 text-orange">
-                <Icon size={22} />
+      <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <StaggerGrid className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" itemClassName="h-full">
+          {values.map((value) => {
+            const Icon = value.icon;
+            return (
+              <div key={value.title} className="glass-panel h-full p-6">
+                <div className="grid h-12 w-12 place-items-center rounded-full border border-orange/40 bg-orange/10 text-orange">
+                  <Icon size={22} />
+                </div>
+                <h2 className="mt-5 font-serif text-2xl font-semibold text-foreground">
+                  <T k={value.title} />
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  <T k={value.text} />
+                </p>
               </div>
-              <h2 className="mt-5 font-serif text-2xl font-semibold text-foreground">
-                <T k={value.title} />
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                <T k={value.text} />
-              </p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </StaggerGrid>
       </MotionSection>
 
       <MotionSection className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">

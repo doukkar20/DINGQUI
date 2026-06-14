@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ArrowRight, Boxes } from "lucide-react";
 import Image from "next/image";
 import { LocalizedLink, T, useI18n } from "@/lib/i18n";
@@ -25,26 +26,38 @@ export function CategoryCard({ category, products = [], compact = false }: Categ
 
   if (compact) {
     return (
-      <LocalizedLink href={href} className="glass-card spotlight-card group grid grid-cols-[92px_1fr] items-center gap-4 p-4">
-        <div className="relative aspect-square overflow-hidden rounded-md bg-[radial-gradient(circle,#fff,#eef0f3)]">
-          {category.image ? (
-            <Image src={category.image} alt={name} fill sizes="92px" className="object-contain p-2 transition duration-500 group-hover:scale-110" />
-          ) : (
-            <Boxes className="m-auto h-full text-orange" />
-          )}
-        </div>
-        <div>
-          <h3 className="text-xl font-black text-foreground transition group-hover:text-deep-orange">
-            {name}
-          </h3>
-          <p className="mt-1 text-sm text-muted"><T k="home.productsCount" values={{ count: category.count }} /></p>
-        </div>
-      </LocalizedLink>
+      <motion.div
+        className="h-full"
+        whileHover={{ y: -7, scale: 1.015 }}
+        whileTap={{ scale: 0.985 }}
+        transition={{ type: "spring", stiffness: 320, damping: 22 }}
+      >
+        <LocalizedLink href={href} className="glass-card spotlight-card group grid h-full grid-cols-[92px_1fr] items-center gap-4 p-4">
+          <div className="relative aspect-square overflow-hidden rounded-md bg-[radial-gradient(circle,#fff,#eef0f3)]">
+            {category.image ? (
+              <Image src={category.image} alt={name} fill sizes="92px" className="object-contain p-2 transition duration-500 group-hover:scale-110" />
+            ) : (
+              <Boxes className="m-auto h-full text-orange" />
+            )}
+          </div>
+          <div>
+            <h3 className="text-xl font-black text-foreground transition group-hover:text-deep-orange">
+              {name}
+            </h3>
+            <p className="mt-1 text-sm text-muted"><T k="home.productsCount" values={{ count: category.count }} /></p>
+          </div>
+        </LocalizedLink>
+      </motion.div>
     );
   }
 
   return (
-    <article className="glass-card spotlight-card overflow-hidden">
+    <motion.article
+      className="glass-card spotlight-card h-full overflow-hidden"
+      whileHover={{ y: -8, scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ type: "spring", stiffness: 300, damping: 24 }}
+    >
       <LocalizedLink href={href} className="grid gap-0 sm:grid-cols-[210px_1fr]">
         <div className="relative min-h-56 bg-[radial-gradient(circle,#ffffff,#eef0f3)]">
           {category.image && (
@@ -67,6 +80,6 @@ export function CategoryCard({ category, products = [], compact = false }: Categ
           </span>
         </div>
       </LocalizedLink>
-    </article>
+    </motion.article>
   );
 }

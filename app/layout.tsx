@@ -4,9 +4,11 @@ import { CartProvider } from "@/components/cart-provider";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { MotionProvider } from "@/components/motion-provider";
 import { I18nProvider } from "@/lib/i18n";
 import { publicAssetPath } from "@/lib/assets";
 import { organizationSchema, siteDescription, siteName, siteTitle, websiteSchema } from "@/lib/seo";
+import { ScrollProgress } from "@/components/scroll-progress";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -82,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="ar-MA" dir="rtl" className={`${geistSans.variable} ${cormorant.variable} ${cairo.variable}`}>
       <body>
+        <ScrollProgress />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -91,14 +94,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <I18nProvider>
-          <CartProvider>
-            <CustomCursor />
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-          </CartProvider>
+          <MotionProvider>
+            <CartProvider>
+              <CustomCursor />
+              <div className="flex min-h-screen flex-col">
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+            </CartProvider>
+          </MotionProvider>
         </I18nProvider>
       </body>
     </html>

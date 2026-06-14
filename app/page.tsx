@@ -12,6 +12,7 @@ import {
 import { CategoryCard } from "@/components/category-card";
 import { Hero } from "@/components/hero";
 import { MotionSection } from "@/components/motion-section";
+import { StaggerGrid } from "@/components/stagger-grid";
 import { TopWinningProducts } from "@/components/top-winning-products";
 import { LocalizedLink, T } from "@/lib/i18n";
 import { getCategories } from "@/lib/products";
@@ -80,11 +81,11 @@ export default function Home() {
               <ArrowRight size={18} />
             </LocalizedLink>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <StaggerGrid className="grid gap-4 sm:grid-cols-2" itemClassName="h-full">
             {categories.map((category) => (
               <CategoryCard key={category.key} category={category} compact />
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </MotionSection>
 
@@ -101,7 +102,7 @@ export default function Home() {
             </LocalizedLink>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <StaggerGrid className="grid gap-4 sm:grid-cols-2" itemClassName="h-full">
             {trustHighlights.map((item) => {
               const Icon = item.icon;
 
@@ -119,7 +120,7 @@ export default function Home() {
                 </article>
               );
             })}
-          </div>
+          </StaggerGrid>
         </div>
       </MotionSection>
     </>
