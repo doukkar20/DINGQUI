@@ -104,12 +104,10 @@ export function Header() {
             </AnimatePresence>
           </div>
           <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noreferrer"
+            href="tel:+212626018950"
             className="btn-ghost magnetic"
             data-cursor="cta"
-            aria-label={t("hero.whatsapp")}
+            aria-label={t("brand.phone")}
           >
             <Phone size={17} />
             {t("brand.phone")}
