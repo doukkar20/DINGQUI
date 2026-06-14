@@ -119,6 +119,13 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href="tel:+212626018950"
+            className="btn-icon"
+            aria-label={t("brand.phone")}
+          >
+            <Phone size={19} />
+          </a>
           <LocalizedLink href="/cart" className="btn-icon" ariaLabel={t("nav.cart")}>
             <ShoppingBag size={19} />
             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
