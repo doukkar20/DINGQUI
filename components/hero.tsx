@@ -189,7 +189,7 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative z-10 mx-auto h-[390px] w-full max-w-[650px] sm:h-[520px] lg:h-[650px]">
+        <div className="relative z-10 mx-auto min-h-[700px] w-full max-w-[650px] sm:min-h-[610px] lg:min-h-[650px]">
           <motion.div
             aria-hidden="true"
             className="absolute inset-x-0 top-10 mx-auto aspect-square w-[92%] max-w-[560px] rounded-full border border-orange/20"
@@ -206,7 +206,7 @@ export function Hero() {
             transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          <div className="absolute inset-x-0 top-0 flex justify-center gap-3">
+          <div className="relative z-20 flex justify-center gap-3">
             <button
               type="button"
               onClick={goToPrevious}
@@ -227,7 +227,7 @@ export function Hero() {
             </button>
           </div>
 
-          <div className="absolute inset-x-0 top-16 mx-auto h-[260px] max-w-[590px] overflow-hidden rounded-lg border border-white/12 bg-white/[0.06] shadow-[0_42px_110px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:h-[430px] lg:top-20 lg:h-[470px]">
+          <div className="relative z-10 mx-auto mt-4 h-[430px] max-w-[590px] overflow-hidden rounded-lg border border-white/12 bg-white/[0.06] shadow-[0_42px_110px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:mt-6 lg:h-[470px]">
             <AnimatePresence mode="wait">
               {activeProduct && (
                 <motion.div
@@ -305,7 +305,7 @@ export function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 mx-auto grid max-w-[590px] grid-cols-4 gap-2 sm:grid-cols-8">
+          <div className="relative z-20 mx-auto mt-4 grid max-w-[590px] grid-cols-4 gap-2 sm:grid-cols-8">
             {slides.map((product, index) => {
               const isActive = index === activeIndex;
 
