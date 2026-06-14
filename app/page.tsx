@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import {
   ArrowRight,
-  BadgeCheck,
   Clock,
   CreditCard,
-  Database,
   Headphones,
   MessageCircle,
   ShieldCheck,
@@ -24,29 +22,6 @@ export const metadata: Metadata = pageMetadata({
   description: "Order DingQi professional tools in Morocco from DINGQI GROS with fast WhatsApp quotes, delivery support, and trusted product sourcing.",
   path: "/",
 });
-
-const commitments = [
-  {
-    icon: BadgeCheck,
-    title: "commitments.source.title",
-    text: "commitments.source.text",
-  },
-  {
-    icon: Database,
-    title: "commitments.catalog.title",
-    text: "commitments.catalog.text",
-  },
-  {
-    icon: ShieldCheck,
-    title: "commitments.quote.title",
-    text: "commitments.quote.text",
-  },
-  {
-    icon: MessageCircle,
-    title: "commitments.whatsapp.title",
-    text: "commitments.whatsapp.text",
-  },
-];
 
 const trustHighlights = [
   {
@@ -110,23 +85,6 @@ export default function Home() {
               <CategoryCard key={category.key} category={category} compact />
             ))}
           </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {commitments.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.title} className="glass-panel metal-border p-6">
-                <div className="grid h-12 w-12 place-items-center rounded-full border border-orange/40 bg-orange/10 text-orange">
-                  <Icon size={22} />
-                </div>
-                <h3 className="mt-5 text-2xl font-black text-foreground"><T k={item.title as "commitments.source.title"} /></h3>
-                <p className="mt-3 text-sm leading-7 text-muted"><T k={item.text as "commitments.source.text"} /></p>
-              </div>
-            );
-          })}
         </div>
       </MotionSection>
 
