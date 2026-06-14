@@ -145,7 +145,7 @@ export function Header() {
             className="overflow-hidden border-t border-white/15 bg-graphite/96 text-white lg:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2 px-4 py-5 sm:px-6">
-              <LanguageSwitcher compact />
+              <LanguageSwitcher compact onChange={() => setOpen(false)} />
               {navigation.map((item) => (
                 <LocalizedLink
                   key={item.href}

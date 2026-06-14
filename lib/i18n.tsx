@@ -180,8 +180,42 @@ export function LocalizedLink({
 export function LanguageSwitcher({ compact = false, onChange }: { compact?: boolean; onChange?: () => void }) {
   const { language, setLanguage, t } = useI18n();
 
+  if (compact) {
+    return (
+      <div
+        className="grid w-full gap-1 rounded-lg border border-gray-200 bg-white p-1"
+        role="group"
+        aria-label={t("language.label")}
+      >
+        {languages.map((item) => {
+          const isActive = item === language;
+
+          return (
+            <button
+              key={item}
+              type="button"
+              onClick={() => {
+                setLanguage(item);
+                onChange?.();
+              }}
+              className={cn(
+                "rounded-md px-4 py-2.5 text-start text-sm font-semibold transition",
+                isActive
+                  ? "bg-orange text-white shadow-sm"
+                  : "text-foreground hover:bg-orange/10 hover:text-orange",
+              )}
+              aria-pressed={isActive}
+            >
+              {languageLabels[item]}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
-    <label className={cn("flex items-center gap-2 text-xs text-muted", compact && "w-full")}>
+    <label className="flex items-center gap-2 text-xs text-muted">
       <span className="sr-only">{t("language.label")}</span>
       <select
         value={language}
@@ -189,10 +223,7 @@ export function LanguageSwitcher({ compact = false, onChange }: { compact?: bool
           setLanguage(event.target.value as Language);
           onChange?.();
         }}
-        className={cn(
-          "h-10 rounded-full border border-gray-200 bg-white px-3 text-sm font-semibold text-foreground outline-none transition focus:border-orange/60",
-          compact && "w-full",
-        )}
+        className="h-10 rounded-full border border-gray-200 bg-white px-3 text-sm font-semibold text-foreground outline-none transition focus:border-orange/60"
         aria-label={t("language.label")}
       >
         {languages.map((item) => (
