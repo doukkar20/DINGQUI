@@ -34,7 +34,7 @@ export type Product = {
   imageAlt?: LocalizedText;
   images: string[];
   source_url: string;
-  price: string;
+  price: string | number;
   imported_at: string;
   original_title?: string;
   original_category?: string;

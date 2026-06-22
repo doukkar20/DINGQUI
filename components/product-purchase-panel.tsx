@@ -6,6 +6,7 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ReservationForm } from "@/components/reservation-form";
 import { useI18n } from "@/lib/i18n";
 import type { Product } from "@/lib/types";
+import { formatPrice } from "@/lib/utils";
 
 type ProductPurchasePanelProps = {
   product: Product;
@@ -22,7 +23,7 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
         <div>
           <p className="text-sm text-muted">{t("product.price")}</p>
           <p className="mt-1 text-2xl font-semibold text-deep-orange">
-            {product.price.trim() || t("product.priceOnRequest")}
+            {formatPrice(product.price, t("product.priceOnRequest"))}
           </p>
         </div>
 

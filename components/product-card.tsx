@@ -8,6 +8,7 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import { LocalizedLink, useI18n } from "@/lib/i18n";
 import { getProductCategory, getProductImageAlt, getProductName, getProductRoute } from "@/lib/products";
 import type { Product } from "@/lib/types";
+import { formatPrice } from "@/lib/utils";
 
 type ProductCardProps = {
   product: Product;
@@ -97,7 +98,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-6">
           <span className="text-sm font-black text-deep-orange">
-            {product.price.trim() || t("product.priceOnRequest")}
+            {formatPrice(product.price, t("product.priceOnRequest"))}
           </span>
           <AddToCartButton product={product} compact className="min-w-28" />
         </div>
